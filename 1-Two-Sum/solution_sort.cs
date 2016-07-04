@@ -1,7 +1,7 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         //two pointer; sort
-        //TC:O(nlogn); SC:O(1)
+        //TC:O(nlogn); SC:O(n)
         if(nums.Length < 2){
             throw new ArgumentException("Invalid Input.");
         }
