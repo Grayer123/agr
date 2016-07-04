@@ -8,7 +8,6 @@ public class Solution {
         var lst = nums.ToList();
         lst.Sort();
         int left = 0, right = nums.Length - 1;
-        bool flag = false;
         while(left < right){
             if(lst[left] == target - lst[right]){
                 return AddItem(nums, lst[left], lst[right]);
