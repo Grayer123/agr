@@ -1,7 +1,7 @@
 public class Solution {
     public int GetSum(int a, int b) {
         //bit manipulation
-        //TC:O(1); SC:O(1)
+        //TC:O(n); SC:O(1)
         int val1 = a & b;
         int val2 = a ^ b;
         val1 = (val1 << 1);
