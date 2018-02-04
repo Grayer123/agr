@@ -1,6 +1,7 @@
 # 766. Toeplitz Matrix
 
 [Original Page](https://leetcode.com/problems/toeplitz-matrix/description/)
+======
 
 A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
 
@@ -29,21 +30,22 @@ The diagonal "[1, 2]" has different elements.
 </pre>
 
 **Note:** 
-<pre>
+```
 1. matrix will be a 2D array of integers.
 2. matrix will have a number of rows and columns in range [1, 20].
 3. matrix[i][j] will be integers in range [0, 99].
-</pre>
+```
+---
 
-
+```
 * Difficulty:Easy
 * Companies 
-[Google](www.google.com)
+  * [Google](http://www.google.com)
 * Related Topics 
   * Array
 * Similar Questions 
   * Valid Word Square
-
+```
 
 
 <div>
