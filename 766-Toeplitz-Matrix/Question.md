@@ -36,10 +36,10 @@ The diagonal "[1, 2]" has different elements.
 ```
 ---
 
-* Difficulty:Easy
+* Difficulty: [Easy](https://leetcode.com/problemset/all/?difficulty=Easy)
 * Companies 
   * [Google](http://www.google.com)
 * Related Topics 
-  * Array
+  * [Array](https://leetcode.com/tag/array/)
 * Similar Questions 
   * [(E) 422. Valid Word Square](https://leetcode.com/problems/valid-word-square/description/)
