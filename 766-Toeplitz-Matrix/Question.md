@@ -16,7 +16,8 @@ Explanation:
 9512
 
 
-In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]", and in each diagonal all elements are the same, so the answer is True.
+In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]", 
+and in each diagonal all elements are the same, so the answer is True.
 </pre>
 
 **Example2:** 
@@ -42,22 +43,16 @@ Similar Questions
 Valid Word Square
 
 <div>
-
     <div id="company_tags" class="btn btn-xs btn-warning">Company Tags</div>
-
     <span class="hidebutton" style="display: inline;">[Google]</span>
 </div>
 
 <div>
-
     <div id="tags" class="btn btn-xs btn-warning">Related Topics</div>
-
     <span class="hidebutton" style="display: inline;">[Array] [Math](/tag/math/)</span>
 </div>
 
 <div>
-
     <div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
-
     <span class="hidebutton" style="display: inline;">[(M) Valid Word Square](/problems/multiply-strings/) </span>
 </div>
