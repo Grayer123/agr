@@ -28,10 +28,12 @@ Explanation:
 The diagonal "[1, 2]" has different elements.
 </pre>
 
-Note:
+**Note:** 
+<pre>
 1. matrix will be a 2D array of integers.
 2. matrix will have a number of rows and columns in range [1, 20].
 3. matrix[i][j] will be integers in range [0, 99].
+</pre>
 
 
 Difficulty:Easy
@@ -41,6 +43,26 @@ Related Topics
 Array
 Similar Questions 
 Valid Word Square
+
+<div>
+
+<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+
+<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Bloomberg](/company/bloomberg/) [Airbnb](/company/airbnb/) [Adobe](/company/adobe/)</span></div>
+
+<div>
+
+<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
+
+<span class="hidebutton" style="display: inline;">[Linked List](/tag/linked-list/) [Math](/tag/math/)</span></div>
+
+<div>
+
+<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+
+<span class="hidebutton" style="display: inline;">[(M) Multiply Strings](/problems/multiply-strings/) [(E) Add Binary](/problems/add-binary/) [(E) Sum of Two Integers](/problems/sum-of-two-integers/)</span></div>
+
+
 
 <div>
     <div id="company_tags" class="btn btn-xs btn-warning">Company Tags</div>
