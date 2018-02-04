@@ -22,8 +22,8 @@ and in each diagonal all elements are the same, so the answer is True.
 
 **Example2:** 
 ```
-**Input:** matrix = [[1,2],[2,2]]
-**Output:** False
+Input: matrix = [[1,2],[2,2]]
+Output: False
 Explanation:
 The diagonal "[1, 2]" has different elements.
 ```
@@ -42,41 +42,4 @@ The diagonal "[1, 2]" has different elements.
 * Related Topics 
   * Array
 * Similar Questions 
-  * Valid Word Square
-
-
-
-<div>
-
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Bloomberg](/company/bloomberg/) [Airbnb](/company/airbnb/) [Adobe](/company/adobe/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Linked List](/tag/linked-list/) [Math](/tag/math/)</span></div>
-
-<div>
-
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
-
-<span class="hidebutton" style="display: inline;">[(M) Multiply Strings](/problems/multiply-strings/) [(E) Add Binary](/problems/add-binary/) [(E) Sum of Two Integers](/problems/sum-of-two-integers/)</span></div>
-
-
-
-<div>
-    <div id="company_tags" class="btn btn-xs btn-warning">Company Tags</div>
-    <span class="hidebutton" style="display: inline;">[Google]</span>
-</div>
-
-<div>
-    <div id="tags" class="btn btn-xs btn-warning">Related Topics</div>
-    <span class="hidebutton" style="display: inline;">[Array] [Math](/tag/math/)</span>
-</div>
-
-<div>
-    <div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
-    <span class="hidebutton" style="display: inline;">[(M) Valid Word Square](/problems/multiply-strings/) </span>
-</div>
+  * [(E) 422. Valid Word Square](https://leetcode.com/problems/valid-word-square/description/)
