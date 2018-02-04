@@ -6,9 +6,8 @@ A matrix is Toeplitz if every diagonal from top-left to bottom-right has the sam
 
 Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
  
-
-Example 1:
-
+**Example1:** 
+<pre>
 Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
 Output: True
 Explanation:
@@ -16,21 +15,23 @@ Explanation:
 5123
 9512
 
-In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]", and in each diagonal all elements are the same, so the answer is True.
-Example 2:
 
-Input: matrix = [[1,2],[2,2]]
-Output: False
+In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]", and in each diagonal all elements are the same, so the answer is True.
+</pre>
+
+**Example2:** 
+<pre>
+**Input:** matrix = [[1,2],[2,2]]
+**Output:** False
 Explanation:
 The diagonal "[1, 2]" has different elements.
+</pre>
 
 Note:
 1. matrix will be a 2D array of integers.
 2. matrix will have a number of rows and columns in range [1, 20].
 3. matrix[i][j] will be integers in range [0, 99].
 
-**Input:** (2 -> 4 -> 3) + (5 -> 6 -> 4)  
-**Output:** 7 -> 0 -> 8
 
 Difficulty:Easy
 Companies 
@@ -42,18 +43,21 @@ Valid Word Square
 
 <div>
 
-<div id="company_tags" class="btn btn-xs btn-warning">Hide Company Tags</div>
+    <div id="company_tags" class="btn btn-xs btn-warning">Company Tags</div>
 
-<span class="hidebutton" style="display: inline;">[Amazon](/company/amazon/) [Microsoft](/company/microsoft/) [Bloomberg](/company/bloomberg/) [Airbnb](/company/airbnb/) [Adobe](/company/adobe/)</span></div>
-
-<div>
-
-<div id="tags" class="btn btn-xs btn-warning">Hide Tags</div>
-
-<span class="hidebutton" style="display: inline;">[Linked List](/tag/linked-list/) [Math](/tag/math/)</span></div>
+    <span class="hidebutton" style="display: inline;">[Google]</span>
+</div>
 
 <div>
 
-<div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+    <div id="tags" class="btn btn-xs btn-warning">Related Topics</div>
 
-<span class="hidebutton" style="display: inline;">[(M) Multiply Strings](/problems/multiply-strings/) [(E) Add Binary](/problems/add-binary/) [(E) Sum of Two Integers](/problems/sum-of-two-integers/)</span></div>
+    <span class="hidebutton" style="display: inline;">[Array] [Math](/tag/math/)</span>
+</div>
+
+<div>
+
+    <div id="similar" class="btn btn-xs btn-warning">Hide Similar Problems</div>
+
+    <span class="hidebutton" style="display: inline;">[(M) Valid Word Square](/problems/multiply-strings/) </span>
+</div>
