@@ -1,7 +1,6 @@
 # 766. Toeplitz Matrix
 
 [Original Page](https://leetcode.com/problems/toeplitz-matrix/description/)
-======
 
 A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
 
@@ -16,18 +15,18 @@ Explanation:
 5123
 9512
 
-
 In the above grid, the diagonals are "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]", 
 and in each diagonal all elements are the same, so the answer is True.
 </pre>
 
+
 **Example2:** 
-<pre>
+```
 **Input:** matrix = [[1,2],[2,2]]
 **Output:** False
 Explanation:
 The diagonal "[1, 2]" has different elements.
-</pre>
+```
 
 **Note:** 
 ```
@@ -37,7 +36,6 @@ The diagonal "[1, 2]" has different elements.
 ```
 ---
 
-```
 * Difficulty:Easy
 * Companies 
   * [Google](http://www.google.com)
@@ -45,7 +43,7 @@ The diagonal "[1, 2]" has different elements.
   * Array
 * Similar Questions 
   * Valid Word Square
-```
+
 
 
 <div>
