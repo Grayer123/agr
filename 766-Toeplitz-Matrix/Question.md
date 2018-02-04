@@ -36,13 +36,15 @@ The diagonal "[1, 2]" has different elements.
 </pre>
 
 
-Difficulty:Easy
-Companies 
-Google
-Related Topics 
-Array
-Similar Questions 
-Valid Word Square
+* Difficulty:Easy
+* Companies 
+[Google](www.google.com)
+* Related Topics 
+  * Array
+* Similar Questions 
+  * Valid Word Square
+
+
 
 <div>
 
