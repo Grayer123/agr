@@ -1,6 +1,7 @@
 public class Solution {
     public int SearchInsert(int[] nums, int target) {
         //tc:O(lgn); sc:O(1)
+        //here assumes no duplicates
         if(nums.Length == 0){
             return 0; //corner case
         }
