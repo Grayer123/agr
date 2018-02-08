@@ -18,13 +18,13 @@ Input: [1,3,5,6], 2
 Output: 1
 ```
 
-**Example 1:** 
+**Example 3:** 
 ```
 Input: [1,3,5,6], 7
 Output: 4
 ```
 
-**Example 1:** 
+**Example 4:** 
 ```
 Input: [1,3,5,6], 0
 Output: 0
