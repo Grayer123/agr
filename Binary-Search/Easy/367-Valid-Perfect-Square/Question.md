@@ -24,7 +24,7 @@ Returns: False
   * [LinkedIn](https://leetcode.com/company/linkedin/)
 * Related Topics 
   * [Binary Search](https://leetcode.com/tag/binary-search/)
-  * [Math](https://leetcode.com/tag/math)/
+  * [Math](https://leetcode.com/tag/math/)
   
    
 * Similar Questions 
