@@ -7,29 +7,25 @@ public class Solution {
                 return 0; //corner case
             }
             int start = 0, end = nums.Length - 1;
-            while (start + 1 < end)
+            while (start < end)
             {
                 int mid = start + (end - start) / 2;
                 if (nums[mid] < target)
                 {
-                    start = mid;
+                    start = mid + 1;
                 }
                 else
                 {
                     end = mid;
                 }
             }
-            if(nums[start] >= target)
+            if (nums[start] >= target)
             {
                 return start;
             }
-            else if (nums[end] >= target)
+            else
             {
-                return end;
-            }
-            else 
-            {
-                return end + 1;
+                return start + 1;
             }
         }
 }
