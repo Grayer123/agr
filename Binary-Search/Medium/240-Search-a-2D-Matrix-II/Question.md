@@ -18,8 +18,8 @@ Consider the following matrix:
   [18, 21, 23, 26, 30]
 ]
 ```
-Given **target** = 5, return `true`.
-Given **target** = 20, return `false`.
+Given **target** = 5, return `true`;  
+Given **target** = 20, return `false`;  
 
 ---
 
