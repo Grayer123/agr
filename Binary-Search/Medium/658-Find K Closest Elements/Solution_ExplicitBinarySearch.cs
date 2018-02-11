@@ -1,7 +1,7 @@
 //do binary search first, then do two pointers to shrink the window size to k
 public class Solution {
     public IList<int> FindClosestElements(int[] arr, int k, int x) {
-        //tc:O(nlogn); sc:O(k)
+        //tc:O(logn + k); sc:O(k)
         int len = arr.Length;
         int min = arr[0], max = arr[len - 1];
         if (x <= min)  //corner case

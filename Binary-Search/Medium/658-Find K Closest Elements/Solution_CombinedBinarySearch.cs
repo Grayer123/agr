@@ -1,7 +1,7 @@
 //combined binary search with two pointers at the same time
 public class Solution {
     public IList<int> FindClosestElements(int[] arr, int k, int x) {
-        //tc:O(nlogn); sc:O(k)
+        //tc:O(logn); sc:O(k)
         int len = arr.Length;
         int start = 0;
         int end = len - k; //ensure k elems between arr[len-k] - arr[len-1]
