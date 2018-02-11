@@ -6,7 +6,7 @@ public class Solution {
             return true;
         }
         int start = 1, end = num / 2;
-        while(start + 1 < end){
+        while(start < end){
             int mid = start + (end - start) / 2; //avoid overflow
             if(num / mid == mid && num % mid == 0){
                 return true;
@@ -15,10 +15,10 @@ public class Solution {
                 end = mid;
             }
             else{
-                start = mid;
+                start = mid + 1;
             }
         }
-        if(num / start == start && num % start == 0 || num / end == end && num % end == 0){
+        if(num / start == start && num % start == 0){
             return true;
         }
         return false;
