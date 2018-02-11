@@ -22,9 +22,7 @@ Given **target** = `3`, return `true`.
 ---
 
 * Difficulty: [Medium](https://leetcode.com/problemset/all/?difficulty=Medium)
-* Related Topics 
-  * [Binary Search](https://leetcode.com/tag/binary-search/)
-  * [Array](https://leetcode.com/tag/array/)
+* Related Topics * [Binary Search](https://leetcode.com/tag/binary-search/)  * [Array](https://leetcode.com/tag/array/)
    
 * Similar Questions 
   * [(M) 240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
