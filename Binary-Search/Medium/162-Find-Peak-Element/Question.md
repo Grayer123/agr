@@ -15,8 +15,7 @@ You may imagine that **num[-1] = num[n] = -∞**.
 In array `[1, 2, 3, 1]`,   
 `3` is a peak element and your function should return the index number `2`.
 
-click to show spoilers.
-
+click to show spoilers:
 Note:
 Your solution should be in **logarithmic** complexity.
 
