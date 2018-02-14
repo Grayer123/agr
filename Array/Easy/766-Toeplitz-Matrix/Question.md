@@ -38,7 +38,7 @@ The diagonal "[1, 2]" has different elements.
 
 * Difficulty: [Easy](https://leetcode.com/problemset/all/?difficulty=Easy)
 * Companies 
-  * [Google](http://www.google.com)
+  * [Google](https://leetcode.com/company/google/) 
 * Related Topics 
   * [Array](https://leetcode.com/tag/array/)
 * Similar Questions 
