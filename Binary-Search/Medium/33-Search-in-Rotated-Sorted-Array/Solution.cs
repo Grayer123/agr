@@ -12,7 +12,7 @@ public class Solution {
             if(nums[mid] == target){
                 return mid;
             }
-            if(nums[mid] < cmp){ //pivot has occured before mid
+            if(nums[mid] < cmp){ //pivot has occurred before mid
                 if(target > nums[mid] && target <= cmp){
                     start = mid + 1;
                 }
