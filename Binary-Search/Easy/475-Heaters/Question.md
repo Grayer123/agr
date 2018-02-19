@@ -11,8 +11,8 @@ So, your input will be the positions of `houses` and `heaters` seperately,
 and your expected output will be the minimum radius standard of heaters.
 
 **Note:**
-1. Numbers of houses and heaters you are given are non-negative and will not exceed `25000`.
-2. Positions of houses and heaters you are given are non-negative and will not exceed `10<sup>9</sup>`.
+1. Numbers of houses and heaters you are given are non-negative and will not exceed **25000**.
+2. Positions of houses and heaters you are given are non-negative and will not exceed **10<sup>9</sup>**.
 3. As long as a house is in the heaters' warm radius range, it can be warmed.
 4. All the heaters follow your radius standard and the warm radius will the same.
 
