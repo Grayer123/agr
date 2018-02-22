@@ -19,6 +19,7 @@ public class Solution {
             dd -= dsCopy;
             res += (long)1 << count; // 1<<31 =>Int32.MinValue(-2,147,483,648), here need 2,147,483,648, so convert to long 
         }
+        //handle overflow: dividend = Int32.MinValue, divisor = -1, => 2,147,483,648 => overflow
         return sign == 0 ? (res <= Int32.MaxValue ? Convert.ToInt32(res) : Int32.MaxValue) : Convert.ToInt32(-res);
     }
 }
