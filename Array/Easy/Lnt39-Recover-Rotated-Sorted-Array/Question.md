@@ -23,5 +23,5 @@ In-place, O(1) extra space and O(n) time.
 
 * Difficulty: [Easy](https://leetcode.com/problemset/all/?difficulty=Easy)
 * Companies: *[Facebook](https://leetcode.com/company/facebook/) *[Microsoft](https://leetcode.com/company/microsoft/) 
-* Related Topics: * [Array](https://leetcode.com/tag/array/)  * [Two Pointers](https://leetcode.com/tag/two-pointers/) *[Binary Search](https://leetcode.com/tag/binary-search/)
+* Related Topics: * [Array](https://leetcode.com/tag/array/) *[Binary Search](https://leetcode.com/tag/binary-search/)
 * Similar Questions: *[(M) 75. Sort Colors](https://leetcode.com/problems/sort-colors/description/) * [(E) 796. Rotate String](https://leetcode.com/problems/rotate-string/description/)
