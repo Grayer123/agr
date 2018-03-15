@@ -22,11 +22,23 @@ public:
         reverseArray(nums, 0, nums.size() - 1);
     }
     
-    void reverseArray(vector<int>& nums, int start, int end){
+    //auxiliary method: to reverse a portion in the vector
+    void reverseArray(vector<int>& nums, int start, int end){ //exchange
         while(start < end){
             int temp = nums[start];
             nums[start] = nums[end];
             nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    //another auxiliary method to reverse a portion in the vector
+    void reverseArray2(vector<int>& nums, int start, int end){ //bit manipulation
+        while(start < end){
+            nums[start] = nums[start] ^ nums[end];
+            nums[end] = nums[start] ^ nums[end];
+            nums[start] = nums[start] ^ nums[end];
             start++;
             end--;
         }
