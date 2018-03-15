@@ -1,4 +1,4 @@
-# 39. Recover Rotated Sorted Arra
+# 39. Recover Rotated Sorted Array
 
 [Original Page](http://www.lintcode.com/en/problem/recover-rotated-sorted-array/)
 
@@ -8,7 +8,7 @@ Given a **rotated** sorted array, recover it to sorted array **in-place**.
 
 What is **rotated array**?
 
-For example, the orginal array is `[1,2,3,4]`, The rotated array of it can be `[1,2,3,4]`, `[2,3,4,1]`, `[3,4,1,2]`, `[4,1,2,3]`
+For example, the original array is `[1,2,3,4]`, The rotated array of it can be `[1,2,3,4]`, `[2,3,4,1]`, `[3,4,1,2]`, `[4,1,2,3]`
 
 
 **Example:**
@@ -18,14 +18,6 @@ For example, the orginal array is `[1,2,3,4]`, The rotated array of it can be `[
 
 **Challenge:** 
 In-place, O(1) extra space and O(n) time.
-
-Tags 
-Sorted Array Array
-Related Problems 
-Medium Sort Colors 36 %
-Easy Rotate String
-
-
 
 ---
 
