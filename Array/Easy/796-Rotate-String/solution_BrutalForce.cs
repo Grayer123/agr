@@ -1,7 +1,7 @@
 public class Solution {
     public bool RotateString(string A, string B) {
         //three times reverse
-        //TC:O(n); SC:O(n)
+        //TC:O(n^2); SC:O(n)
         if(A == null || B == null || A.Length != B.Length){ //corner case
             return false;
         }
