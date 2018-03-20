@@ -1,6 +1,6 @@
 public class Solution {
     public string ReverseWords(string s) {
-        // reverse two times
+        // split()
         //TC:O(n); SC:O(n)
         if(String.IsNullOrWhiteSpace(s)){
             return string.Empty;

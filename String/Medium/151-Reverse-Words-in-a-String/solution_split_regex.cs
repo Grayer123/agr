@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 public class Solution {
     public string ReverseWords(string s) {
-        // reverse two times
+        // split() + regular expression
         //TC:O(n); SC:O(n)
         if(String.IsNullOrWhiteSpace(s)){
             return string.Empty;
