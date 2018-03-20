@@ -1,25 +1,18 @@
-//using System.Text;
 public class Solution {
     public string ReverseWords(string s) {
-        // reverse two times
+        // split()
         //TC:O(n); SC:O(n)
         if(String.IsNullOrWhiteSpace(s)){
             return string.Empty;
-        }
-        s.Trim(); //remove leading and trailing zeros
-        string[] arr = s.Split(' ');
+        }       
+        string[] arr = s.Trim().Split(' '); //remove leading and trailing zeros first
         StringBuilder builder = new StringBuilder(); 
-        foreach(string str in arr){
-            if(String.IsNullOrWhiteSpace(str)){
+        for(int i = arr.Length - 1; i >= 0; i--){
+            if(String.IsNullOrWhiteSpace(arr[i])){
                 continue;
             }
-            builder.Append(ReverseString(str)).Append(" ");
+            builder.Append(arr[i]).Append(" ");
         }
-        return ReverseString(builder.ToString().Trim());
-    }
-    private string ReverseString(string s){
-        char[] arr = s.ToCharArray();
-        Array.Reverse(arr);
-        return new string(arr);
+        return builder.ToString().Trim();
     }
 }
