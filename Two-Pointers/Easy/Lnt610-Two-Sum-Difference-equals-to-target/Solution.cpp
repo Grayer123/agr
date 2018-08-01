@@ -7,7 +7,7 @@ public:
      */
     vector<int> twoSum7(vector<int> &nums, int target) {
         // two pointers
-        // tc:O(nlogn); sc:O(1)
+        // tc:O(nlogn); sc:O(n)
         if(nums.size() < 2) {
             return vector<int>();
         }
