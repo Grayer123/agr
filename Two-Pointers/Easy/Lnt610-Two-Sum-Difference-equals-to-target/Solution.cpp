@@ -14,13 +14,13 @@ public:
         auto sortedNums = nums;
         sort(sortedNums.begin(), sortedNums.end());
         target = abs(target);
-        for(int i = 0; i < sortedNums.size() - 1; i++) {
-            int j = i + 1;
-            while(j < sortedNums.size() && sortedNums[j] - sortedNums[i] <= target) {
-                if(sortedNums[j] - sortedNums[i] == target) {
-                    return findElems(nums, sortedNums[i], sortedNums[j]);
-                }
-                j++;
+        int fast = 1;
+        for(int slow = 0; slow < sortedNums.size() - 1; slow++) {
+            while(fast < sortedNums.size() && sortedNums[fast] - sortedNums[slow] < target) {
+                fast++;
+            }
+            if(sortedNums[fast] - sortedNums[slow] == target) {
+                return findElems(nums, sortedNums[slow], sortedNums[fast]);
             }
         }
         return vector<int>();
