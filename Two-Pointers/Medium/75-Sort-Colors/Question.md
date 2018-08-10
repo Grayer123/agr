@@ -28,4 +28,4 @@ Could you come up with a **one-pass** algorithm using only constant space?
 * Similar Questions: 
   * [(M) 148. Sort List](https://leetcode.com/problems/sort-list/description/)
   * [(M) 280. Wiggle Sort](https://leetcode.com/problems/wiggle-sort/description/)
-  * [(E) 324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)
+  * [(M) 324. Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)
