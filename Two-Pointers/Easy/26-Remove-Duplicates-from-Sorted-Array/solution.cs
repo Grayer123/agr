@@ -6,14 +6,12 @@ public class Solution {
             return 0;
         }
         int slow = 0, fast = 0;
+        
         while(slow <= fast && fast < nums.Length) {
             if(nums[slow] != nums[fast]) {
-                slow++;
-                nums[slow] = nums[fast];
+                nums[++slow] = nums[fast];
             }
-            else{
-                fast++;
-            }
+            fast++;
         }
         return slow + 1;
     }
