@@ -1,25 +1,20 @@
-class Solution {
-public:
-    /**
-     * @param A: a list of integers
-     * @return : return an integer
-     */
-    int removeDuplicates(vector<int> &nums) {
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
         //array
         //tc:O(n); sc:O(1)
-        if(nums.size() == 0){
+        if(nums == null || nums.Length == 0){
             return 0;
         }
         int prev = nums[0], cur = 1, times = 1;
-        for(int i = 1; i < nums.size(); i++){
+        for(int i = 1; i < nums.Length; i++){
             if(nums[i] == prev){
                 if(times == 1){
                     nums[cur++] = nums[i];
                     times++;
                 }
-                else{
-                    continue;
-                }
+                // else{
+                //     continue;
+                // }
             }
             else{
                 nums[cur++] = nums[i];
@@ -29,4 +24,4 @@ public:
         }
         return cur;
     }
-};
+}
