@@ -30,6 +30,6 @@ Can you solve it using `O(1)` (i.e. constant) memory?
 ---
 
 * Difficulty: [Easy](https://leetcode.com/problemset/all/?difficulty=Easy)
-* Related Topics: * [Two Pointers](https://leetcode.com/tag/two-pointers/)  * [String](https://leetcode.com/tag/string/)  
+* Related Topics: * [Two Pointers](https://leetcode.com/tag/two-pointers/)  * [Linked List](https://leetcode.com/tag/linked-list/) 
 * Similar Questions 
-  * [(M) 141. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+  * [(M) 142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
