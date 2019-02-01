@@ -15,7 +15,7 @@ public class Solution {
             else if(nums[cur] == 1) {
                 cur++;
             }
-            else {
+            else { //when nums[cur]==2,the elem exchanged from pr could be anything, so cur could not ++
                 Swap(ref nums, cur, pr);
                 pr--;
             }
