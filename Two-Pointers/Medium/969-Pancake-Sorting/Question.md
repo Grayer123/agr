@@ -7,7 +7,8 @@ We want to perform zero or more pancake flips (doing them one after another in s
 
 Return the k-values corresponding to a sequence of pancake flips that sort A.  
 Any valid answer that sorts the array within `10 * A.length` flips will be judged as correct.
- 
+
+
 **Example 1:**
 Input: [3,2,4,1]
 Output: [4,2,4,3]
