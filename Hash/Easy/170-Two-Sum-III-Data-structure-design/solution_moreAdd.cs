@@ -19,16 +19,32 @@ public class TwoSum {
     
     /** Find if there exists any pair of numbers which sum is equal to the value. */
     public bool Find(int value) {
-        foreach(var key in dict.Keys){
-            int num1 = key, num2 = value - key;
-            if(dict.ContainsKey(num2)){
-                if(num1 != num2 || dict[num2] >= 2){
+        foreach(var key in dict.Keys) {
+            int target = value - key;
+            if(dict.ContainsKey(target)) {
+                if(key != target || dict[key] >= 2) { // val = 6 {1,5} or {3,3}
                     return true;
                 }
             }
         }
         return false;
     }
+    // public bool Find(int value) {
+    //     foreach(var key in dict.Keys) {
+    //         int target = value - key;
+    //         if(dict.ContainsKey(target)) {
+    //             if(key == target) { 
+    //                 if(dict[key] > 1) {
+    //                     return true;
+    //                 }
+    //             }
+    //             else {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
 }
 
 /**
