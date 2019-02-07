@@ -1,13 +1,13 @@
-# 49. Sort Letters by Case  
-[Original Page](https://www.lintcode.com/problem/sort-letters-by-case/description)
+# 373. Partition Array by Odd and Even  
+[Original Page](https://www.lintcode.com/problem/partition-array-by-odd-and-even/description)
 
-Given a string which contains only letters. Sort it by lower case first and upper case second.  
+Partition an integers array into odd number first and even number second.   
 
-It's NOT necessary to keep the original order of lower-case letters and upper case letters.
+It's NOT necessary to keep the original order of odd number and even number.
    
 **Example:**
 
-For "abAcD", a reasonable answer is "acbAD"     
+Given [1, 2, 3, 4], return [1, 3, 2, 4]     
    
 **Challenge:**
 Do it in-place and without extra memory, with O(n) time complexity.
