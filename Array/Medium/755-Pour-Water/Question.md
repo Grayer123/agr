@@ -102,7 +102,21 @@ The final answer is [2,2,2,3,2,2,2]:
  ####### 
  0123456 
 
- ```
+ ```   
+**Example2:**   
+Input: heights = [1,2,3,4], V = 2, K = 2  
+Output: [2,3,3,4]  
+**Explanation:**    
+The last droplet settles at index 1, since moving further left would not cause it to eventually fall to a lower height.  
+  
+**Example3:**   
+Input: heights = [3,1,3], V = 5, K = 1
+Output: [4,4,4] 
+
+**Note:**     
+* heights will have length in [1, 100] and contain integers in [0, 99].
+* V will be in range [0, 2000].
+* K will be in range [0, heights.length - 1].
 
 ---
 
