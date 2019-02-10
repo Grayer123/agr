@@ -121,7 +121,7 @@ Output: [4,4,4]
 ---
 
 * Difficulty: [Medium](https://leetcode.com/problemset/all/?difficulty=Medium)
-* Related Topics * [Binary Search](https://leetcode.com/tag/binary-search/)  * [Array](https://leetcode.com/tag/array/)
+* Related Topics * [Array](https://leetcode.com/tag/array/)
    
 * Similar Questions 
-  * [(M) 240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/description/)
+  * [(H) 42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
