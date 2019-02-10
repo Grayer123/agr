@@ -1,26 +1,25 @@
-# 680. Valid Palindrome II
-[Original Page](https://leetcode.com/problems/valid-palindrome-ii/description/)
+# 977. Squares of a Sorted Array
+[Original Page](https://leetcode.com/problems/squares-of-a-sorted-array/)
 
-Given a **non-empty** string s, you may delete `at most` one character. Judge whether you can make it a palindrome.
+Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.  
 
 ```
 Example 1:
-Input: "aba"
-Output: True
+Input: [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
 
 Example 2:
-Input: "abca"
-Output: True
-Explanation: You could delete the character 'c'.
+Input: [-7,-3,2,3,11]
+Output: [4,9,9,49,121]
 ```
 
 Note:
-The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
+* 1 <= A.length <= 10000
+* -10000 <= A[i] <= 10000
+* nums is sorted in non-decreasing order.
 
 ---
 
 * Difficulty: [Easy](https://leetcode.com/problemset/all/?difficulty=Easy)
-* Companies:  * [Facebook](https://leetcode.com/company/facebook/) * [Microsoft](https://leetcode.com/company/microsoft/) * [Zenefits](https://leetcode.com/company/zenefits/)
-* Related Topics: * [String](https://leetcode.com/tag/string/)  
-* Similar Questions: 
-  * [(E) 125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
+* Companies:  * [Google](https://leetcode.com/company/google/) * [Adobe](https://leetcode.com/company/adobe/) 
+* Related Topics: * [Two Pointers](https://leetcode.com/tag/two-pointers/)  
