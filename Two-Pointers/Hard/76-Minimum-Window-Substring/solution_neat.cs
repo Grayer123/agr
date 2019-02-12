@@ -14,20 +14,11 @@ public class Solution {
         int[] res = {-1, -1};
         Dictionary<char, int> windowCounts = new Dictionary<char, int>();
         while(right < s.Length) {
-            while(right < s.Length) {
-                if(dictT.ContainsKey(s[right])) {
-                    windowCounts[s[right]] = windowCounts.ContainsKey(s[right]) ? ++windowCounts[s[right]] : 1;
-                    if(dictT[s[right]] == windowCounts[s[right]]) {
-                        numOfMatched++;
-                    }
-                    if(numOfMatched == dictT.Count) {
-                        break;
-                    }
+            if(dictT.ContainsKey(s[right])) {
+                windowCounts[s[right]] = windowCounts.ContainsKey(s[right]) ? ++windowCounts[s[right]] : 1;
+                if(dictT[s[right]] == windowCounts[s[right]]) {
+                    numOfMatched++;
                 }
-                right++;
-            }
-            if(right >= s.Length) {
-                break;
             }
             while(numOfMatched == dictT.Count && left <= right - t.Length + 1) {
                 if(dictT.ContainsKey(s[left])) {
@@ -44,9 +35,6 @@ public class Solution {
             }
             right++;
         }
-        if(res[0] == -1) {
-            return String.Empty;
-        }
-        return s.Substring(res[0], res[1] - res[0] + 1);
+        return res[0] == -1 ? String.Empty : s.Substring(res[0], res[1] - res[0] + 1);
     }
 }
