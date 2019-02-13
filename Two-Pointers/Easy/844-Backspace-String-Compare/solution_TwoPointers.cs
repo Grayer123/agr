@@ -6,7 +6,7 @@ public class Solution {
         int countS = 0, countT = 0;
         
         while(curS >= 0 || curT >= 0) {
-            while(curS >= 0 && (S[curS] == '#' || countS > 0)) {
+            while(curS >= 0 && (S[curS] == '#' || countS > 0)) { // elem is #, count++; or still # remaining, skip current elem
                 if(S[curS] == '#') {
                     countS++;
                     curS--;
@@ -27,7 +27,7 @@ public class Solution {
                 }
             }
 
-            if(curS >= 0 && curT >= 0 && S[curS] != T[curT]) {
+            if(curS >= 0 && curT >= 0 && S[curS] != T[curT]) { // compare the elem (both no # remaining)
                     return false;
             }
             else if((curS < 0) != (curT < 0)) { // one < 0 && one >= 0
