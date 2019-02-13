@@ -14,7 +14,7 @@ public class Solution {
         int[] res = {-1, -1};
         Dictionary<char, int> windowCounts = new Dictionary<char, int>();
         while(right < s.Length) {
-            while(right < s.Length) {
+            while(right < s.Length) { // find the window
                 if(dictT.ContainsKey(s[right])) {
                     windowCounts[s[right]] = windowCounts.ContainsKey(s[right]) ? ++windowCounts[s[right]] : 1;
                     if(dictT[s[right]] == windowCounts[s[right]]) {
@@ -29,7 +29,7 @@ public class Solution {
             if(right >= s.Length) {
                 break;
             }
-            while(numOfMatched == dictT.Count && left <= right - t.Length + 1) {
+            while(numOfMatched == dictT.Count && left <= right - t.Length + 1) { // contract the window
                 if(dictT.ContainsKey(s[left])) {
                     windowCounts[s[left]]--;
                     if(windowCounts[s[left]] < dictT[s[left]]) {
