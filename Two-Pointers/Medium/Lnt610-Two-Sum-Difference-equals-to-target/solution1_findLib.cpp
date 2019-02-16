@@ -7,7 +7,7 @@ public:
      */
     vector<int> twoSum7(vector<int> &nums, int target) {
         // two pointers
-        // tc:O(nlogn); sc:O(1)
+        // tc:O(n); sc:O(1)
         if(nums.size() < 2) {
             return {};
         }
@@ -16,17 +16,17 @@ public:
         
         int slow = 0, fast = 1;
         target = abs(target);
-        while(slow <= fast && fast < nums.size()) {
-            if(sortedNums[fast] - sortedNums[slow] == target) {
-                int idx1 = find(nums.begin(), nums.end(), sortedNums[slow]) - nums.begin() + 1;
-                int idx2 = nums.rend() - find(nums.rbegin(), nums.rend(), sortedNums[fast]);
-                return {idx1 < idx2 ? idx1 : idx2, idx1 < idx2 ? idx2: idx1};
+        while(fast < nums.size()) {
+            if(slow == fast || sortedNums[fast] - sortedNums[slow] < target) {
+                fast++;
             }
             else if(sortedNums[fast] - sortedNums[slow] > target) {
                 slow++;
             }
             else{
-                fast++;
+                int idx1 = find(nums.begin(), nums.end(), sortedNums[slow]) - nums.begin() + 1;
+                int idx2 = nums.rend() - find(nums.rbegin(), nums.rend(), sortedNums[fast]);
+                return {idx1 < idx2 ? idx1 : idx2, idx1 < idx2 ? idx2: idx1};
             }
         }
         return {};
