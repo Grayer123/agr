@@ -10,13 +10,15 @@ public class Solution {
         Dictionary<char, int> dict = new Dictionary<char, int>();
         while(right < s.Length) {
             dict[s[right]] = dict.ContainsKey(s[right]) ? ++dict[s[right]] : 1;
-            while(dict.Count == 3 && left < right) {
-                maxLen = Math.Max(maxLen, right - left);
-                dict[s[left]]--;
-                if(dict[s[left]] == 0) {
-                    dict.Remove(s[left]);
+            if(dict.Count == 3) {
+                maxLen = Math.Max(maxLen, right - left);         
+                while(dict.Count == 3 && left < right) {
+                    dict[s[left]]--;
+                    if(dict[s[left]] == 0) {
+                        dict.Remove(s[left]);
+                    }
+                    left++;
                 }
-                left++;
             }
             right++;
         }
