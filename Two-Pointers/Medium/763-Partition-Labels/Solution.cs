@@ -17,9 +17,9 @@ public class Solution {
                 right = Math.Max(dict[s[left]], right);
                 left++;
             }
-                res.Add(left - cur);
-                cur = left;
-                right = left;
+            res.Add(left - cur);
+            cur = left;
+            right = left;
         }
         return res;
     }
