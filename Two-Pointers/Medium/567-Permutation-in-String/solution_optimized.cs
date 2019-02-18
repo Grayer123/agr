@@ -15,7 +15,7 @@ public class Solution {
         int matched = 0;
              
         while(right < s2.Length) {
-            if(!dictS1.ContainsKey(s2[right])) {
+            if(!dictS1.ContainsKey(s2[right])) { // no matching char, window start set to next char
                 right++;
                 left = right;
                 windowCounts.Clear();
@@ -23,10 +23,10 @@ public class Solution {
             }
             else {
                 windowCounts[s2[right]] = windowCounts.ContainsKey(s2[right]) ? ++windowCounts[s2[right]] : 1;
-                if(windowCounts[s2[right]] == dictS1[s2[right]]) {
+                if(windowCounts[s2[right]] == dictS1[s2[right]]) { // find a match => matched++
                     matched++;
                 }
-                else if(windowCounts[s2[right]] == dictS1[s2[right]] + 1) {
+                else if(windowCounts[s2[right]] == dictS1[s2[right]] + 1) { // adding too many repeats, no more matched => matched--
                     matched--;
                 }
                 if(right - left + 1 == s1.Length) {
@@ -34,17 +34,16 @@ public class Solution {
                         return true;
                     }
                     windowCounts[s2[left]]--;
-                    if(windowCounts[s2[left]] == dictS1[s2[left]]) {
-                    matched++;
-                }
-                else if(windowCounts[s2[left]] == dictS1[s2[left]] - 1) {
-                    matched--;
-                }
+                    if(windowCounts[s2[left]] == dictS1[s2[left]]) { // find a match => matched++
+                        matched++;
+                    }
+                    else if(windowCounts[s2[left]] == dictS1[s2[left]] - 1) { // removing too many repeats, no more matched => matched--
+                        matched--;
+                    }
                     left++;
                 }
                 right++;
-            }
-            
+            }           
         }
         return false;
     }
