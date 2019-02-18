@@ -14,7 +14,7 @@ public class Solution {
         int left = 0, right = 0;
              
         while(right < s2.Length) {
-            if(!dictS1.ContainsKey(s2[right])) {
+            if(!dictS1.ContainsKey(s2[right])) { // no matching char, window start set to next char
                 right++;
                 left = right;
                 windowCounts.Clear();
