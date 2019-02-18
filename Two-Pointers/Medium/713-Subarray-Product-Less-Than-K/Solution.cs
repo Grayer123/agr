@@ -1,23 +1,20 @@
 public class Solution {
     public int NumSubarrayProductLessThanK(int[] nums, int k) {
-        // brutal force
-        // tc:O(n ^ 2); sc:O(1)
-        // time limit exceeded on extreme situation: nums=[1,1,1...], k = 2 (nums is a huge array)
+        // two pointers
+        // tc:O(n); sc:O(1)
         if(nums == null || nums.Length == 0 || k <= 1) { // all positive in nums
             return 0;
         }
+        int left = 0, right = 0;
         int product = 1, res = 0;
-        for(int i = 0; i < nums.Length; i++) {
-            product = nums[i];
-            if(nums[i] < k) {
-                res++;
+        while(right < nums.Length) {
+            product *= nums[right];
+            while(left <= right && product >= k) {
+                product /= nums[left];
+                left++;
             }
-            int j = i + 1;
-            while(j < nums.Length && nums[j] * product < k) {
-                product *= nums[j];
-                res++;
-                j++;
-            }
+            res += right - left + 1; // could be empty (empty: left = right + 1)
+            right++;
         }
         return res;
     }
