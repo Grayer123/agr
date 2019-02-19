@@ -10,7 +10,7 @@ public class Solution {
     public ListNode RotateRight(ListNode head, int k) {
         // linked list
         // tc:O(n); sc:O(1)
-        if(head == null || head.next == null) {
+        if(head == null || head.next == null || k == 0) {
             return head;
         }
         ListNode cur = head;
