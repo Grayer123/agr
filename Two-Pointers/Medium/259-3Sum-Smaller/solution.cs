@@ -11,7 +11,7 @@ public class Solution {
             int left = i + 1, right = nums.Length - 1;
             while(left < right) {
                 if(nums[left] + nums[right] < target - nums[i]) {
-                    res += right - left;
+                    res += right - left; // since {left, right} matched, [left, left+1,...,right-1] also matches
                     left++;
                 }
                 else {
