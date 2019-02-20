@@ -9,7 +9,7 @@
 public class Solution {
     public UndirectedGraphNode CloneGraph(UndirectedGraphNode node) {
         //bfs + hashtable
-        // tc:O(n); sc:O(n)
+        // tc:O(node * edge); sc:O(n)
         if(node == null) {
             return node;
         }
