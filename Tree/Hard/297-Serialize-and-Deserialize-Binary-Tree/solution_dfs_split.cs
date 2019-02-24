@@ -10,6 +10,7 @@
 public class Codec {
     // dfs: preorder
     // tc:O(n); sc:O(n)
+    
     // Encodes a tree to a single string.
     public string serialize(TreeNode root) {
         if(root == null) {
@@ -22,11 +23,10 @@ public class Codec {
     
     private void PreorderTraverse(TreeNode node, StringBuilder str) {
         if(node == null) {
-            str.Append('#');
+            str.Append("# ");
             return;
         }
-        str.Append(node.val);
-        str.Append(' ');
+        str.Append(node.val + " ");
         PreorderTraverse(node.left, str);
         PreorderTraverse(node.right, str);
         
@@ -37,20 +37,20 @@ public class Codec {
         if(data == null || data == string.Empty) {
             return null;
         }
+        string[] arr = data.Split(' ');
         int cur = 0;       
-        return FetchNode(data, ref cur);
+        return FetchNode(arr, ref cur);
     }
     
-    private TreeNode FetchNode(string data, ref int start) {
-        if(data[start] == '#') {
-            start++;
+    private TreeNode FetchNode(string[] arr, ref int cur) {
+        if(arr[cur] == "#") {
+            cur++;
             return null;
         }
-        int end = data.IndexOf(' ', start);
-        TreeNode newNode = new TreeNode(Int32.Parse(data.Substring(start, end - start)));
-        start = end + 1;
-        newNode.left = FetchNode(data, ref start);
-        newNode.right = FetchNode(data, ref start);
+        TreeNode newNode = new TreeNode(Int32.Parse(arr[cur]));
+        cur++;
+        newNode.left = FetchNode(arr, ref cur);
+        newNode.right = FetchNode(arr, ref cur);
         return newNode;
     }
 }

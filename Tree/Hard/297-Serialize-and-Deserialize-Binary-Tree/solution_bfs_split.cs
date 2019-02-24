@@ -10,7 +10,7 @@
 public class Codec {
     // bfs: level order serialization
     // tc:O(n); sc:O(n)
-
+    
     // Encodes a tree to a single string.
     public string serialize(TreeNode root) {
         if(root == null) {
@@ -29,7 +29,7 @@ public class Codec {
                 str.Append(' ');
             }
             else {
-                str.Append('#');
+                str.Append("# ");
             }
             if(node.right != null) {
                 queue.Enqueue(node.right);
@@ -37,7 +37,7 @@ public class Codec {
                 str.Append(' ');
             }
             else {
-                str.Append('#');
+                str.Append("# ");
             }
         }
         return str.ToString();
@@ -48,14 +48,16 @@ public class Codec {
         if(data == null || data == string.Empty) {
             return null;
         }
+        string[] arr = data.Split(' ');
         int cur = 0;
-        Queue<TreeNode> queue = new Queue<TreeNode>();
-        TreeNode root = FetchNode(data, ref cur);
+        Queue<TreeNode> queue = new Queue<TreeNode>();  
+        TreeNode root = FetchNode(arr, ref cur);
+        
         queue.Enqueue(root);
         while(queue.Count > 0) {
             TreeNode node = queue.Dequeue();
-            TreeNode leftNode = FetchNode(data, ref cur);
-            TreeNode rightNode = FetchNode(data, ref cur);
+            TreeNode leftNode = FetchNode(arr, ref cur);
+            TreeNode rightNode = FetchNode(arr, ref cur);
             node.left = leftNode;
             node.right = rightNode;
             if(leftNode != null) {
@@ -68,14 +70,13 @@ public class Codec {
         return root;
     }
     
-    private TreeNode FetchNode(string data, ref int left) {
-        if(data[left] == '#') {
-            left++;
+    private TreeNode FetchNode(string[] arr, ref int cur) {
+        if(arr[cur] == "#") {
+            cur++;
             return null;
         }
-        int right = data.IndexOf(' ', left);
-        TreeNode newNode = new TreeNode(Int32.Parse(data.Substring(left, right - left)));
-        left = right + 1;
+        TreeNode newNode = new TreeNode(Int32.Parse(arr[cur]));
+        cur++;
         return newNode;
     }
 }
