@@ -9,6 +9,7 @@
  */
 public class Codec {
     // bfs: level order serialization
+    // tc:O(n); sc:O(n)
 
     // Encodes a tree to a single string.
     public string serialize(TreeNode root) {
