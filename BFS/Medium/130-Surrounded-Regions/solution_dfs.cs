@@ -5,48 +5,41 @@ public class Solution {
         if(board == null) {
             return;
         }
-        Queue<Tuple<int, int>> queue = new Queue<Tuple<int, int>>();
-        CheckBoundaries(board, queue);
-        Dfs(board, queue);
+        CheckBoundaries(board);
         SetToX(board);
     }
     
-    private void CheckBoundaries(char[,] board, Queue<Tuple<int, int>> queue) {
+    private void CheckBoundaries(char[,] board) {
         int m = board.GetLength(0), n = board.GetLength(1);
         for(int i = 0; i < m; i++) {
             if(board[i, 0] == 'O') {
-                queue.Enqueue(new Tuple<int, int>(i, 0));
+                Dfs(board, i, 0);
             }
             if(board[i, n - 1] == 'O') {
-                queue.Enqueue(new Tuple<int, int>(i , n - 1));
+                Dfs(board, i , n - 1);
             }
         }
         for(int j = 0; j < n; j++) {
             if(board[0, j] == 'O') {
-                queue.Enqueue(new Tuple<int, int>(0, j));
+                Dfs(board, 0, j);
             }
             if(board[m  - 1, j] == 'O') {
-                queue.Enqueue(new Tuple<int, int>(m - 1, j));
+                Dfs(board, m - 1, j);
             }
         }
     }
     
-    private void Dfs(char[,] board, Queue<Tuple<int, int>> queue) {    
-        if(queue.Count == 0) {
-            return;
-        }
+    private void Dfs(char[,] board, int x, int y) {    
+        board[x, y] = 'B';
         int[] dx = {1, -1, 0, 0};
-        int[] dy = {0, 0, 1, -1};
-        var tuple = queue.Dequeue();
-        board[tuple.Item1, tuple.Item2] = 'B';
+        int[] dy = {0, 0, 1, -1};        
         for(int i = 0; i < 4; i++) {
-            int x = tuple.Item1 + dx[i];
-            int y = tuple.Item2 + dy[i];
-            if(IsValid(board, x , y) && board[x, y] == 'O') {
-                queue.Enqueue(new Tuple<int, int>(x, y));
+            int newX = x + dx[i];
+            int newY = y + dy[i];
+            if(IsValid(board, newX, newY) && board[newX, newY] == 'O') {
+                Dfs(board, newX, newY);
             }
         }
-        Dfs(board, queue);
     }
     
     private bool IsValid(char[,] board, int x, int y) {
