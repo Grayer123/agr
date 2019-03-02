@@ -9,8 +9,8 @@ public class Solution {
         Dictionary<char, int> inBounds = CalculateInBounds(graph);
         
         Queue<char> queue = new Queue<char>();
-        foreach(char ch in inBounds.Keys) {
-            if(inBounds[ch] == 0) { // add all nodes with in-bound = 0 to queue
+        foreach(char ch in graph.Keys) {
+            if(!inBounds.ContainsKey(ch)) { // add all nodes with in-bound = 0 to queue
                 queue.Enqueue(ch);
             }
         }
@@ -51,11 +51,8 @@ public class Solution {
     }
     
     private Dictionary<char, int> CalculateInBounds(Dictionary<char, List<char>> graph) {  
-        Dictionary<char, int> inBounds = new Dictionary<char, int>();
+        Dictionary<char, int> inBounds = new Dictionary<char, int>(); 
         foreach(var key in graph.Keys) {
-            if(!inBounds.ContainsKey(key)) {
-                inBounds[key] = 0;
-            }
             foreach(var ngb in graph[key]) {
                 inBounds[ngb] = inBounds.ContainsKey(ngb) ? ++inBounds[ngb] : 1;
             }
