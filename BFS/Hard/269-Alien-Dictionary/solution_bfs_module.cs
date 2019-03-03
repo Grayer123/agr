@@ -51,7 +51,7 @@ public class Solution {
     }
     
     private Dictionary<char, int> CalculateInBounds(Dictionary<char, List<char>> graph) {  
-        Dictionary<char, int> inBounds = new Dictionary<char, int>(); 
+        Dictionary<char, int> inBounds = new Dictionary<char, int>(); // calculate in-bounds for nodes
         foreach(var key in graph.Keys) {
             foreach(var ngb in graph[key]) {
                 inBounds[ngb] = inBounds.ContainsKey(ngb) ? ++inBounds[ngb] : 1;

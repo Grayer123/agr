@@ -6,7 +6,7 @@ public class Solution {
         }
         HashSet<string> dict = wordList.ToHashSet();
         dict.Add(beginWord);
-        Dictionary<string, int> levelDict = new Dictionary<string, int>();
+        Dictionary<string, int> levelDict = new Dictionary<string, int>(); // dictionary to record the level for each node
         levelDict[beginWord] = 0;
         var ladders = Bfs(dict, levelDict, beginWord, endWord);
         if(ladders == null) {
@@ -19,7 +19,7 @@ public class Solution {
     }
 
     private Dictionary<string, List<string>> Bfs(HashSet<string> dict, Dictionary<string, int> levelDict, string start, string end) {
-        Dictionary<string, List<string>> ladders = new Dictionary<string, List<string>>(); // Neighbors for every node
+        Dictionary<string, List<string>> ladders = new Dictionary<string, List<string>>(); // consruct the graph, get neighbors for every node
         foreach(string str in dict) {
             ladders[str] = new List<string>();
         }
@@ -27,11 +27,11 @@ public class Solution {
         queue.Enqueue(start);
         while(queue.Count > 0) {
             int levelSize = queue.Count;
-            for(int i = 0; i < levelSize; i++) {
+            for(int i = 0; i < levelSize; i++) {  // level order traversal
                 string word = queue.Dequeue();
                 foreach(var ngb in MakeLadders(ladders, dict, queue, word)) {
-                    ladders[word].Add(ngb);
-                    if(!levelDict.ContainsKey(ngb)) {
+                    ladders[word].Add(ngb);  // Add all neighbors to the node in dictionary
+                    if(!levelDict.ContainsKey(ngb)) { // keep the level for each node
                         levelDict[ngb] = levelDict[word] + 1;
                         if(ngb == end) {
                             break;
@@ -45,7 +45,7 @@ public class Solution {
     }
         
     private List<string> MakeLadders(Dictionary<string, List<string>> ladders, HashSet<string> dict, Queue<string> queue, string key) {  
-        char[] arr = key.ToCharArray();   
+        char[] arr = key.ToCharArray();     // method to get all neighbors for every node
         List<string> neighbors = new List<string>(); 
         for(int i = 0; i < key.Length; i++) {
             char cur = key[i];
@@ -70,7 +70,7 @@ public class Solution {
             return;
         }
         foreach(var word in ladders[startWord]) {
-            if(levelDict[word] == levelDict[startWord] + 1) {
+            if(levelDict[word] == levelDict[startWord] + 1) { // to make sure only explore the nodes with next level (eg: from n to n+1)
                 Dfs(ladders, levelDict, res, row, word, endWord);
                 row.RemoveAt(row.Count - 1);
             }
