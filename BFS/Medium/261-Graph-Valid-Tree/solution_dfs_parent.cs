@@ -8,7 +8,8 @@ public class Solution {
         Dictionary<int, HashSet<int>> graph = ConstructGraph(n, edges); // need to remove node, so use hashset not list
         HashSet<int> visited = new HashSet<int>(); // need to search whether a node has been visited, so use hashset not list
         visited.Add(0);
-        bool res = Dfs(graph, visited, 0); // undirect graph, add any point as an initial one
+        bool res = true;
+        Dfs(graph, visited, 0, -1, ref res); // undirect graph, add any point as an initial one
         return visited.Count == n ? res : false;
     }
     
@@ -24,16 +25,18 @@ public class Solution {
         }
         return graph;
     }
-
-    private void Dfs(Dictionary<int, HashSet<int>> graph, HashSet<int> visited, int node, ref bool res) {
-        foreach(var ngb in graph[node]) {            
+    
+    private void Dfs(Dictionary<int, HashSet<int>> graph, HashSet<int> visited, int node, int parent, ref bool res) {
+        foreach(var ngb in graph[node]) { 
+            if(parent == ngb) { // undirectional graph => added twice for each edge
+                continue;
+            }
             if(visited.Contains(ngb)) {
                 res = false;
                 return;
             }
-            graph[ngb].Remove(node); // undirectional graph => added twice for each edge
             visited.Add(ngb);
-            Dfs(graph, visited, ngb, ref res);
+            Dfs(graph, visited, ngb, node, ref res);
         }
     }
 }
