@@ -36,7 +36,7 @@ Value of node 5 is 50
 Return node 4  
 
 
-**Example2:** 
+**Example2:**   
 Input:  
 {1,2#2,1}  
 [0,1]  
