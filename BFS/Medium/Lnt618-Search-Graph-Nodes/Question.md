@@ -15,13 +15,15 @@ Input:
 50  
 Output:  
 4  
-Explanation:  
+Explanation: 
+<pre> 
 2------3  5  
  \     |  |   
   \    |  |  
    \   |  |  
     \  |  |  
       1 --4  
+</pre>
 Give a node 1, target is 50  
 
 there a hash named values which is [3,4,10,50,50], represent:  

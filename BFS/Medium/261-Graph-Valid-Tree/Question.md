@@ -18,7 +18,7 @@ Output: false
 **Hint1:**   
 * Given n = 5 and edges = [[0, 1], [1, 2], [3, 4]], what should your return? Is this case a valid tree?
 
-**Hint2:** 
+**Hint2:**   
 According to the definition of tree on Wikipedia: “a tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.”
 
 
