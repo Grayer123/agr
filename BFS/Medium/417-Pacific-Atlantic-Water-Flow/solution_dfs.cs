@@ -1,42 +1,52 @@
 public class Solution {
-    public int CountComponents(int n, int[,] edges) {
-        // dfs + undirected graph
-        // tc:O(n*m); sc:O(n*m)
-        if(n == 0 || edges.GetLength(0) == 0) {
-            return n;
+    public IList<int[]> PacificAtlantic(int[,] matrix) {
+        // bfs 
+        // tc:O(mn); sc:O(mn)
+        if(matrix.GetLength(0) == 0) {
+            return new List<int[]>();
         }
-        Dictionary<int, List<int>> graph = ConstructGraph(n, edges);
-        HashSet<int> visited = new HashSet<int>();
-        int res = 0;
-        for(int i = 0; i < n; i++) {
-            if(!visited.Contains(i)) { // has not been visited 
-                res++;
-                visited.Add(i);
-                Dfs(graph, visited, i);
+        int m = matrix.GetLength(0), n = matrix.GetLength(1);
+        List<int[]> res = new List<int[]>();
+        
+        bool[,] aVisited = new bool[m, n]; // for atlantic
+        bool[,] pVisited = new bool[m, n]; // for pacific
+        
+        for(int i = 0; i < m; i++) { // vertical
+            Dfs(matrix, aVisited, i, n - 1); // atlantic
+            Dfs(matrix, pVisited, i, 0); // pacific
+        }
+        for(int j = 0; j < n; j++) { // horizontal
+            Dfs(matrix, aVisited, m - 1, j); // atlantic 
+            Dfs(matrix, pVisited, 0, j); // pacific
+        }
+        
+        for(int i = 0; i < m; i++) { // last scan, if both true in two visited[] => true
+            for(int j = 0; j < n; j++) {
+                if(aVisited[i, j] && pVisited[i, j]) {
+                    res.Add(new int[]{i, j});
+                }
             }
         }
         return res;
-        
-    }
-    private Dictionary<int, List<int>> ConstructGraph(int n, int[,] edges) {
-        Dictionary<int, List<int>> graph = new Dictionary<int, List<int>>();
-        for(int i = 0; i < n; i++) {
-            graph[i] = new List<int>(); // create nodes
-        }
-        for(int i = 0; i < edges.GetLength(0); i++) {  // create edges
-            int node1 = edges[i, 0], node2 = edges[i, 1];
-            graph[node1].Add(node2);
-            graph[node2].Add(node1);
-        }
-        return graph;
     }
     
-    private void Dfs(Dictionary<int, List<int>> graph, HashSet<int> visited, int node) {
-        foreach(int ngb in graph[node]) {
-            if(!visited.Contains(ngb)) {
-                visited.Add(ngb);
-                Dfs(graph, visited, ngb);
+    private void Dfs(int[,] matrix, bool[,] visited, int x, int y) {
+        if(visited[x, y]) {
+            return;
+        }
+        visited[x, y] = true;
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
+        for(int i = 0; i < 4; i++) {
+            int newX = x + dx[i];
+            int newY = y + dy[i];
+            if(IsValid(matrix, newX, newY) && !visited[newX, newY] && matrix[x, y] <= matrix[newX, newY]) {
+                Dfs(matrix, visited, newX, newY);
             }
         }
+    }
+    
+    private bool IsValid(int[,] matrix, int x, int y) {
+        return x >=0 && x < matrix.GetLength(0) && y >= 0 && y < matrix.GetLength(1);
     }
 }
