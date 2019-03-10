@@ -25,16 +25,14 @@ public class Solution {
             for(int i = 0; i < 4; i++) {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
-                if(IsValid(rooms, newX, newY) && rooms[newX, newY] != -1 && rooms[newX, newY] != 0) {
-                    if(rooms[newX, newY] == Int32.MaxValue) {
-                        rooms[newX, newY] = rooms[x, y] + 1;
-                        queue.Enqueue(new Tuple<int, int>(newX, newY));
-                    }
-                    // else if(rooms[newX, newY] > rooms[x, y] + 1) {
-                    //     rooms[newX, newY] =  rooms[x, y] + 1;
-                    //     queue.Enqueue(new Tuple<int, int>(newX, newY));
-                    // }                   
+                if(IsValid(rooms, newX, newY) && rooms[newX, newY] == Int32.MaxValue) {
+                    rooms[newX, newY] = rooms[x, y] + 1;
+                    queue.Enqueue(new Tuple<int, int>(newX, newY));
                 }
+                // else if(rooms[newX, newY] > rooms[x, y] + 1) {
+                //     rooms[newX, newY] =  rooms[x, y] + 1;
+                //     queue.Enqueue(new Tuple<int, int>(newX, newY));
+                // }                   
             }
         }
     }
