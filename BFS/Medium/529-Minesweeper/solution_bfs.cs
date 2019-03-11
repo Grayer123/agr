@@ -44,8 +44,7 @@ public class Solution {
                     queue.Enqueue(Tuple.Create(tuple.Item1, tuple.Item2));
                 }
             }
-        }
-        
+        }      
     }
     private bool IsValid(char[,] board, int x, int y) {
         return x >= 0 && x < board.GetLength(0) && y >= 0 && y < board.GetLength(1);
