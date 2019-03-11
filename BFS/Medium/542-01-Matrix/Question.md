@@ -41,5 +41,5 @@ Output:
 
 
 * Difficulty: [Medium](https://leetcode.com/problemset/all/?difficulty=Midium)
-* Companies: * [Uber](https://leetcode.com/company/uber/)
+* Companies: * [Uber](https://leetcode.com/company/uber/) * [Google](https://leetcode.com/company/google/) * [Amazon](https://leetcode.com/company/amazon/) * [Microsoft](https://leetcode.com/company/microsoft/)
 * Related Topics: * [DFS](https://leetcode.com/tag/depth-first-search/) * [BFS](https://leetcode.com/tag/breadth-first-search/) * [DP](https://leetcode.com/tag/dynamic-programming/)
