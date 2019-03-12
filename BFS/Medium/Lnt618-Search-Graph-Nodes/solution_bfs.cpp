@@ -21,7 +21,7 @@ public:
                                     map<UndirectedGraphNode*, int>& values,
                                     UndirectedGraphNode* node,
                                     int target) {
-        // bfs level order traversal
+        // bfs
         // tc:O(n*m); sc:O(n*m)
         if(graph.size() == 0) {
             return nullptr;
@@ -30,7 +30,6 @@ public:
         queue<UndirectedGraphNode*> q;
         q.push(node);
         while(!q.empty()) {
-            int levelSize = q.size();
             UndirectedGraphNode* nd = q.front();
             q.pop();
             if(values[nd] == target) {
