@@ -10,7 +10,7 @@
 public class Solution {
     public TreeNode BuildTree(int[] preorder, int[] inorder) {
         // divide and conquer 
-        //
+        // tc:O(n); sc:O(n)
         if(preorder == null && inorder == null || preorder.Length == 0 && inorder.Length == 0) { // corner case
             return null;
         }
