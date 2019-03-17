@@ -16,17 +16,16 @@ public class Solution {
         }
         return GetHeight(root) != -1;
     }
-    
-    // return -1 means not balanced binary tree
+    // return -1 if not balanced; otherwise return the height of current node
     private int GetHeight(TreeNode node) {
         if(node == null) {
             return 0;
         }
-        int leftHeight = GetHeight(node.left);
-        int rightHeight = GetHeight(node.right);
-        if(leftHeight == -1 || rightHeight == -1 || Math.Abs(leftHeight - rightHeight) > 1) {
-            return -1;
+        int left = GetHeight(node.left);
+        int right = GetHeight(node.right);
+        if(left == -1 || right == -1 || Math.Abs(left - right) > 1) {
+            return -1;  // not balanced
         }
-        return Math.Max(leftHeight, rightHeight) + 1;
+        return Math.Max(left, right) + 1;
     }
 }
