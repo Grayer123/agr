@@ -1,4 +1,3 @@
-/**
  * Definition for a binary tree node.
  * public class TreeNode {
  *     public int val;
@@ -9,22 +8,20 @@
  */
 public class Solution {
     public bool IsValidBST(TreeNode root) {
-        // divide and conquer
+        // divide and conquer; bst
         // tc:O(n); sc:O(n)
-        if(root == null) { // corner case
+        if(root == null) {
             return true;
         }
-        return Dfs(root, Int64.MaxValue, Int64.MinValue);
+        return ValidateBST(root, Int64.MinValue, Int64.MaxValue);
     }
-    
-    private bool Dfs(TreeNode node, long max, long min) {
-        if(node == null) { // corner case
+    private bool ValidateBST(TreeNode node, long min, long max) {
+        if(node == null) {
             return true;
         }
-        if(node.val >= max || node.val <= min) {
+        if(node.val <= min || node.val >= max) { // not a valid bst
             return false;
         }
-        return Dfs(node.left, node.val, min) && Dfs(node.right, max, node.val);
+        return ValidateBST(node.left, min, node.val) && ValidateBST(node.right, node.val, max);
     }
-    
 }
