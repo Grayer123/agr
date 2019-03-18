@@ -54,7 +54,7 @@
 public class Solution {
     public int PathSum(TreeNode root, int sum) {
         // divide and conquer
-        // TC:O(n); SC:O(n)
+        // TC:O(n^2); SC:O(n)
         if(root == null) {
             return 0;
         }
