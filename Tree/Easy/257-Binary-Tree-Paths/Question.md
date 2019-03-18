@@ -17,8 +17,6 @@ All root-to-leaf paths are:
 
 <pre>["1->2->5", "1->3"]</pre>
 
-**Credits:**  
-Special thanks to [@jianchao.li.fighter](https://leetcode.com/discuss/user/jianchao.li.fighter) for adding this problem and creating all test cases.
 
 <div>
 
