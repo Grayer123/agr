@@ -28,7 +28,7 @@ public class Solution {
         path.Add(node.val);
         if(node.left == null && node.right == null && pathSum == target) { // leaf node
             res.Add(new List<int>(path));
-            path.RemoveAt(path.Count - 1); // remove the leaf node (noth left and right)
+            path.RemoveAt(path.Count - 1); // remove the leaf node => as it returns, not go to child node
             return;
         }
         FindSumPath(node.left, target, pathSum, res, path);        
