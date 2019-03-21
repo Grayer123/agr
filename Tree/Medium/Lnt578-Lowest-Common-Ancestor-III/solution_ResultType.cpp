@@ -32,7 +32,7 @@ public:
      */
     TreeNode * lowestCommonAncestor3(TreeNode * root, TreeNode * p, TreeNode * q) {
         // divide and conquer
-        // tc:O(n^2); sc:O(h)
+        // tc:O(n); sc:O(h)
         // p and q could be not in the tree
         if(!root) { // corner case
             return root;
