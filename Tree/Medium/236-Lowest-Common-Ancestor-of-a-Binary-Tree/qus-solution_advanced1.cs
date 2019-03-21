@@ -58,33 +58,48 @@
  *     public TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
-    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // divide and conquer
-        // tc:O(n^2); sc:O(h)
-        // p and q could be not in the tree
-        if(root == null) { // corner case
-            return root;
-        }
-        TreeNode left = LowestCommonAncestor(root.left, p, q);
-        TreeNode right = LowestCommonAncestor(root.right, p ,q);
-        if(left != null) {
-            return root;
-        }
-        if(right != null) {
-            return right;
-        }
-        return ContainsNode(root, p) && ContainsNode(root, q) ? root : null;
-    }
+
+public class ResultType {
+    public bool pExisted;
+    public bool qExisted;
+    public TreeNode lca;
     
-    private bool ContainsNode(TreeNode root, TreeNode node) {
-        if(root == null) {
-            return false;
-        }
-        if(root == node) {
-            return true;
-        }
-        return ContainsNode(root.left, node) || ContainsNode(root.right, node);
+    public ResultType(bool p, bool q, TreeNode l) {
+        this.pExisted = p;
+        this.qExisted = q;
+        this.lca = l;
     }
 }
 
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // divide and conquer
+        // tc:O(n); sc:O(h)
+        // p and q could be or not be in the tree
+        if(root == null) { // corner case
+            return root;
+        }
+        return FindLCA(root, p, q).lca;
+    }
+    
+    private ResultType FindLCA(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null) {
+            return new ResultType(false, false, null);
+        }
+        ResultType left = FindLCA(root.left, p, q);
+        if(left.lca != null) {
+            return left;
+        }
+        
+        ResultType right = FindLCA(root.right, p, q);        
+        if(right.lca != null) {
+            return right;
+        }
+        bool pExists = left.pExisted || right.pExisted || root == p;
+        bool qExists = left.qExisted || right.qExisted || root == q;
+        if(pExists && qExists) {
+            return new ResultType(true, true, root);
+        }
+        return new ResultType(pExists, qExists, null);
+    }
+}
