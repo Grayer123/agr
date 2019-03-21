@@ -63,18 +63,18 @@ public class Solution {
         // divide and conquer
         // tc:O(n); sc:O(h)
         // assume that both p and q are in the tree
-        if(root == null || root == p || root == q) {
+        if(root == null || root == p || root == q) { // root equals to p or q => return immediately
             return root;
         }
         TreeNode left = LowestCommonAncestor(root.left, p, q);
         TreeNode right = LowestCommonAncestor(root.right, p ,q);
-        if(left != null && right != null) {
+        if(left != null && right != null) { // left and right got p and q respectively => return root
             return root;
         }
-        if(left != null) {
+        if(left != null) { // return left
             return left;
         }
-        if(right != null) {
+        if(right != null) { // return right
             return right;
         }
         return null;
