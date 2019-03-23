@@ -55,7 +55,14 @@
  */
 public class Solution {
     public TreeNode SearchBST(TreeNode root, int val) {
-        
+        // recursive traversal
+        // tc:O(h); sc:O(1)
+        if(root == null || root.val == val) {
+            return root;
+        }
+        if(root.val > val) {
+            return SearchBST(root.left, val);
+        }
+        return SearchBST(root.right, val);
     }
 }
-
