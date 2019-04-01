@@ -1,7 +1,7 @@
 public class Solution {
     public IList<IList<int>> PermuteUnique(int[] nums) {
         // dfs: backtracking 
-        // tc:O(2^n); sc:O(n)
+        // tc:O(n!); sc:O(n)
         if(nums == null || nums.Length == 0) {
             return new List<IList<int>>();
         }
