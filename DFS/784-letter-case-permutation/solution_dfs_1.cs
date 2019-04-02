@@ -35,9 +35,10 @@
  * 
  * 
  */
-public class Solution {
+
+ public class Solution {
     public IList<string> LetterCasePermutation(string s) {
-        // dfs
+        // dfs; backtracking
         // tc:O(2^n * n); sc:O(n)
         if(s == null) {
             return new List<string>();

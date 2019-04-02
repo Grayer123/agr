@@ -35,30 +35,38 @@
  * 
  * 
  */
- 
+
 public class Solution {
     public IList<string> LetterCasePermutation(string s) {
-        // bfs: queue
+        // dfs; backtracking
         // tc:O(2^n * n); sc:O(n)
         if(s == null) {
             return new List<string>();
         }
-        Queue<string> queue = new Queue<string>();
-        queue.Enqueue(s);
-        for(int i = 0; i < s.Length; i++) {
-            if(Char.IsDigit(s[i])) {
-                continue;
-            }
-            int len = queue.Count;
-            for(int j = 0; j < len; j++) {
-                var str = queue.Dequeue();
-                char[] charArr = str.ToCharArray();
-                charArr[i] = Char.ToLower(s[i]);
-                queue.Enqueue(new String(charArr));
-                charArr[i] = Char.ToUpper(s[i]);
-                queue.Enqueue(new String(charArr));
-            }
+        IList<string> res = new List<string>();
+        StringBuilder str = new StringBuilder();
+        FindPermutation(s, res, str, 0);
+        return res;
+        
+    }   
+    private void FindPermutation(string s, IList<string> res, StringBuilder str, int pos) {
+        if(pos == s.Length) {
+            res.Add(str.ToString());
+            return;
         }
-        return queue.ToList();       
+        if(!Char.IsLetter(s[pos])) {
+            str.Append(s[pos]);
+            FindPermutation(s, res, str, pos + 1);
+            str.Length--; // backtracking
+        }
+        else {
+            str.Append(Char.ToLower(s[pos]));
+            FindPermutation(s, res, str, pos + 1);
+            str.Length--; // backtracking
+            str.Append(Char.ToUpper(s[pos]));
+            FindPermutation(s, res, str, pos + 1);
+            str.Length--; // backtracking
+        }       
     }
 }
+
