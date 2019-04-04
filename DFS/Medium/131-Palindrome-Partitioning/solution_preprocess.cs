@@ -1,6 +1,6 @@
 public class Solution {
     public IList<IList<string>> Partition(string s) {
-        // dfs; backtracking + preprocessing palindrome array
+        // dfs; backtracking + preprocessing palindrome array (dp)
         // tc:O(2^n); sc:O(n)
         if(s == null || s.Length == 0) {
             return new List<IList<string>>();
