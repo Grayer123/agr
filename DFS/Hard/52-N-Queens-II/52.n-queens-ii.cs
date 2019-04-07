@@ -43,7 +43,7 @@
 public class Solution {
     public int TotalNQueens(int n) {
         // dfs; backtracking
-        // tc:O(n^2); sc:O(n)
+        // tc:O(n! * n^2); sc:O(n)
         if(n <= 0) {
             return 0;
         }
