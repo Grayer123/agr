@@ -45,12 +45,12 @@
 public class Solution {
     public IList<IList<string>> SolveNQueens(int n) {
         // dfs; backtracking
-        // tc:O(n^2); sc:O(n)
+         // tc:O(n! * n^2); sc:O(n)
         if(n <= 0) {
             return new List<IList<string>>();
         }
         IList<IList<string>> res = new List<IList<string>>();
-        List<int> path = new List<int>(); // store the column number of each queen
+        List<int> path = new List<int>(); // store ith row queen at column path[i]
         Search(res, path, n);
         return res;
     }
