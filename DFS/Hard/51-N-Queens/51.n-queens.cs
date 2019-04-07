@@ -45,7 +45,7 @@
 public class Solution {
     public IList<IList<string>> SolveNQueens(int n) {
         // dfs; backtracking
-        // tc:O(n! * n^2); sc:O(n)
+         // tc:O(n! * n^2); sc:O(n)
         if(n <= 0) {
             return new List<IList<string>>();
         }
