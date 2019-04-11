@@ -1,5 +1,5 @@
 public class TrieNode {
-    public string word;
+    public bool isWord;
     public Dictionary<char, TrieNode> children;
     public TrieNode() {
         this.children = new Dictionary<char, TrieNode>();
@@ -25,7 +25,7 @@ public class Trie {
             }
             node = node.children[ch];
         }
-        node.word = word;  // word ends at this node 
+        node.isWord = true;  // word ends at this node 
     }
     
     /** Returns if the word is in the trie. */
@@ -37,7 +37,7 @@ public class Trie {
             }
             node = node.children[ch];
         }
-        return node.word == word;
+        return node.isWord;
     }
     
     /** Returns if there is any word in the trie that starts with the given prefix. */
