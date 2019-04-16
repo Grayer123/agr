@@ -43,16 +43,11 @@ public class Solution {
         Array.Sort(intervals, new Comparison<int[]>((x,y) => { return x[0] < y[0] ? -1 : (x[0] > y[0] ? 1 : 0); }));
         List<int[]> list = new List<int[]>();
         foreach(var interval in intervals) {
-            if(list.Count == 0) {
+            if(list.Count == 0 || interval[0] > list[list.Count - 1][1]) {
                 list.Add(interval);
-                continue;
-            }
-            int[] arr = list[list.Count - 1];
-            if(interval[0] >= arr[0] && interval[0] <= arr[1]) {
-                list[list.Count - 1] = new int[]{arr[0], Math.Max(interval[1], arr[1])}; 
-            }
+            }         
             else {
-                list.Add(interval);
+                list[list.Count - 1] = new int[]{list[list.Count - 1][0], Math.Max(interval[1], list[list.Count - 1][1])}; 
             }
         }
         return list.ToArray();
