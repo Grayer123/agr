@@ -30,14 +30,14 @@ public class LRUCache {
     }
     
     public void Put(int key, int value) {
-        if(dict.ContainsKey(key)) {
-            dict[key].val = value;
-            Get(key);
+        if(dict.ContainsKey(key)) { // put some already in cache: update the value + Get op (without return)
+            dict[key].val = value; // update the value
+            Get(key);  // Get operation (without return)
             return;
         }
         if(dict.Count == capacity) {          
-            dict.Remove(head.next.key);
-            DeleteNode(head.next);
+            dict.Remove(head.next.key); // need to remove from dict first
+            DeleteNode(head.next);   // if delete first, then head.next no longer point to the first elem 
         }
         CacheNode node = new CacheNode(key, value);                 
         dict[key] = node;
