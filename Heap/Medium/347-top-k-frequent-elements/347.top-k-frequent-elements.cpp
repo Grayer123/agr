@@ -41,7 +41,7 @@ class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         // minheap + hash table
-        // tc:O(nlogn); sc:O(n)
+        // tc:O(nlogk); sc:O(n)
         if(nums.size() == 0 || k <= 0) {
             return {};
         }
