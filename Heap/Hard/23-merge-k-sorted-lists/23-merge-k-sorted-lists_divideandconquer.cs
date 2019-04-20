@@ -36,14 +36,6 @@
  * }
  */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int x) { val = x; }
- * }
- */
 public class Solution {
     public ListNode MergeKLists(ListNode[] lists) {
         // divide and conquer
@@ -79,12 +71,7 @@ public class Solution {
                 node2 = node2.next;
             }
         }
-        if(node1 != null) {
-            cur.next = node1;
-        }
-        if(node2 != null) {
-            cur.next = node2;
-        }
+       cur.next = node1 == null ? node2 : node1;
         return head.next;
     }
 }
