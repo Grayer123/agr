@@ -29,7 +29,7 @@ The order of your output does not matter.
 public class Solution {
     public IList<IList<string>> GroupAnagrams(string[] strs) {
         // sorting + hashtable
-        // tc:O(nlogn); sc:O(n)
+        // tc:O(nklogk); sc:O(nk)
         if(strs == null || strs.Length == 0) {
             return new List<IList<string>>();
         }
