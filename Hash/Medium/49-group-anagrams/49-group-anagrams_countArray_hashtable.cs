@@ -28,18 +28,23 @@ The order of your output does not matter.
  */
 public class Solution {
     public IList<IList<string>> GroupAnagrams(string[] strs) {
-        // sorting + hashtable
-        // tc:O(nklogk); sc:O(nk)
+        // hashtable + counting array
+        // tc:O(nk); sc:O(nk)
         if(strs == null || strs.Length == 0) {
             return new List<IList<string>>();
         }
-        //IList<IList<string>> res = new List<IList<string>>();
-        // Dictionary<char[], IList<string>> dict = new Dictionary<char[], IList<string>>();
         Dictionary<string, IList<string>> dict = new Dictionary<string, IList<string>>();
         foreach(string str in strs) {
-            char[] charArr = str.ToCharArray();
-            Array.Sort(charArr);
-            string st = new string(charArr);
+            int[] countArr = new int[26];
+            foreach(char ch in str) {
+                countArr[ch - 'a']++;
+            }
+            StringBuilder sb = new StringBuilder();
+            foreach(int num in countArr) {
+                sb.Append(num);
+                sb.Append('#');
+            }
+            string st = sb.ToString();
             if(!dict.ContainsKey(st)) {
                 dict[st] = new List<string>{str};
             }
@@ -47,6 +52,7 @@ public class Solution {
                 dict[st].Add(str);
             }
         }
+        
         return dict.Values.ToList();
     }
 }
