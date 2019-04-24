@@ -12,7 +12,7 @@ public class Solution {
         int res = 0;
         foreach(int num in nums) {
             int len = 0;
-            int curNum = num;
+            int curNum = num; // foreach loop does not allow mofidy elem so make a copy
             int lowerNum = num - 1;
             while(hashset.Contains(curNum)) { // expand the num up
                 len++;
