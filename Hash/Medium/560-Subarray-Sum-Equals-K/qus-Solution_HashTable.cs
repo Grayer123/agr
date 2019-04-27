@@ -32,23 +32,27 @@
  */
 public class Solution {
     public int SubarraySum(int[] nums, int k) {
-        // prefix sum + hash table
+        // prefixSum + hashtable
         // tc:O(n); sc:O(n)
         if(nums == null || nums.Length == 0) {
             return 0;
         }
-        Dictionary<int, int> dict = new Dictionary<int, int>(); // store how many times prefix sum appears
-        dict.Add(0, 1); // prepare: prefix = 0, appear time: 1 (for the case nums[0] == k)
+        // int[] prefixSum = new int[nums.Length + 1];  // need to count times => use dictionary as prefixsum array
+        // prefixSum[0] = 0;
+        Dictionary<int, int> prefixSumDict = new Dictionary<int, int>(); // <sum, count>
+        prefixSumDict.Add(0, 1); // prepare: prefix = 0, appear time: 1 (for some case like nums[0] == k)
         int sum = 0;
         int res = 0;
         foreach(int num in nums) {
             sum += num;
-            if(dict.ContainsKey(sum - k)){ // find the prefix sum
-                res += dict[sum - k];
+            int target = sum - k;
+            if(prefixSumDict.ContainsKey(target)) {
+                res += prefixSumDict[target];
             }
-            dict[sum] = dict.ContainsKey(sum) ? ++dict[sum] : 1;
+            prefixSumDict[sum] = prefixSumDict.ContainsKey(sum) ? ++prefixSumDict[sum] : 1; // add sum after check if valid res exists => [1], k = 0
         }
         return res;
     }
 }
+
 
