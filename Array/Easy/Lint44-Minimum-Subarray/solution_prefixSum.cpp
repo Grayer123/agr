@@ -8,7 +8,7 @@ public:
         // prefix sum => minSum = prefixSum[i + 1] - max{prefixSum[0], ... , prefixSum[i]}
         // tc:O(n); sc:O(1)
         if(nums.size() == 0) {
-            return 0;
+            throw "Invalid input exception.";
         }
         int sum = 0;
         int maxSum = 0;
