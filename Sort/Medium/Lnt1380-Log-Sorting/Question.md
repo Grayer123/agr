@@ -1,4 +1,4 @@
-# 894. 1380. Log Sorting
+# 1380. Log Sorting
 [Original Page](https://www.lintcode.com/problem/log-sorting/description)
 
 Given a list of string logs, in which each element representing a log. Each log can be separated into two parts by the **first space**.  
