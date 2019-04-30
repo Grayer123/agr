@@ -56,7 +56,6 @@ Explanation:
 * The total number of logs will not exceed 5000
 * The length of each log will not exceed 100
 * Each log's ID is unique.
-```
 
 ---
 
