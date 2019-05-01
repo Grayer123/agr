@@ -1,31 +1,37 @@
 public class Solution {
     public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
-        //binary search
-        //TC:O(logn); SC:O(1)
+        // find kth in sorted arrays; binary search
+        // tc:O(log(n+m)); sc:O(n)
+        // assume both arrays are not null
+        if(nums1.Length == 0 && nums2.Length == 0) {
+            throw new Exception("Invalid input");
+        }
         int len1 = nums1.Length, len2 = nums2.Length;
-        double median = 0;
-        if((len1 + len2) % 2 != 0){
-            median = FindKth(ref nums1, ref nums2, (len1 + len2) / 2 + 1, 0, 0);
+        if((len1 + len2) % 2 != 0) {
+            return FindMedian(nums1, 0, nums2, 0, (len1 + len2) / 2 + 1);
         }
-        else{
-            median = (double)(FindKth(ref nums1, ref nums2, (len1 + len2) / 2, 0, 0) 
-                              + FindKth(ref nums1, ref nums2, (len1 + len2) / 2 + 1, 0 , 0)) / 2;
+        else {
+            return (FindMedian(nums1, 0, nums2, 0, (len1 + len2) / 2) + FindMedian(nums1, 0, nums2, 0, (len1 + len2) / 2 + 1)) / 2;
         }
-        return median;
     }
     
-    int FindKth(ref int[] nums1, ref int[] nums2, int k, int start1, int start2){
-        if(k == 1){
-            return Math.Min(start1 >= nums1.Length ? Int32.MaxValue : nums1[start1], 
-                            start2 >= nums2.Length ? Int32.MaxValue : nums2[start2]);
+    // find kth in sorted array
+    private double FindMedian(int[] nums1, int start1, int[] nums2, int start2, int k) {
+        if(k == 1) {
+            return Math.Min(start1 >= nums1.Length ? Int32.MaxValue : nums1[start1], start2 >= nums2.Length ? Int32.MaxValue : nums2[start2]);
         }
-        int num1 = start1 + k / 2 - 1 < nums1.Length ? nums1[start1 + k / 2 - 1] : Int32.MaxValue;
-        int num2 = start2 + k / 2 - 1 < nums2.Length ? nums2[start2 + k / 2 - 1] : Int32.MaxValue;
-        if(num1 <= num2){
-            return FindKth(ref nums1, ref nums2, k - k / 2, start1 + k / 2, start2);
+        if(start1 + k / 2 - 1 >= nums1.Length) {
+            return FindMedian(nums1, start1, nums2, start2 + k / 2, k - k / 2);
         }
-        else{
-            return FindKth(ref nums1, ref nums2, k - k / 2, start1, start2 + k / 2);
+        else if(start2 + k / 2 - 1 >= nums2.Length) {
+            return FindMedian(nums1, start1 + k / 2, nums2, start2, k - k / 2);
+        }
+        int num1 = nums1[start1 + k / 2 - 1], num2 = nums2[start2 + k / 2 - 1];
+        if(num1 < num2) {
+            return FindMedian(nums1, start1 + k / 2, nums2, start2, k - k / 2);
+        }
+        else {
+            return FindMedian(nums1, start1, nums2, start2 + k / 2, k - k / 2);
         }
     }
 }
