@@ -1,7 +1,7 @@
 public class Solution {
     public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
         // binary search 
-        // tc:O(log(range)∗(log(n)+log(m))); sc:O(n)
+        // tc:O(log(range)∗(log(n)+log(m))); sc:O(1)
         // assume both arrays are not null
         if(nums1.Length == 0 && nums2.Length == 0) {
             throw new Exception("Invalid input");
