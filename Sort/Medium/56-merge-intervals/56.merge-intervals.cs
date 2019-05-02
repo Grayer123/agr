@@ -49,7 +49,7 @@ public class Solution {
             }
             int[] arr = list[list.Count - 1];
             if(interval[0] >= arr[0] && interval[0] <= arr[1]) {
-                list[list.Count - 1] = new int[]{arr[0], Math.Max(interval[1], arr[1])}; 
+                list[list.Count - 1][1] = Math.Max(interval[1], arr[1]); 
             }
             else {
                 list.Add(interval);

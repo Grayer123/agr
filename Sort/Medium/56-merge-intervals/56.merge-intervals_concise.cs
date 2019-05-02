@@ -47,7 +47,7 @@ public class Solution {
                 list.Add(interval);
             }         
             else {
-                list[list.Count - 1] = new int[]{list[list.Count - 1][0], Math.Max(interval[1], list[list.Count - 1][1])}; 
+                list[list.Count - 1][1] = Math.Max(interval[1], list[list.Count - 1][1]); 
             }
         }
         return list.ToArray();
