@@ -1,38 +1,47 @@
 public class Solution {
     public string ReverseWords(string s) {
-        // reverse two times
+        // reverse two times, not using any string manipulation default function
         //TC:O(n); SC:O(1) => not counting the ToCharArray part
         if(String.IsNullOrWhiteSpace(s)){
             return string.Empty;
         }
-        char[] charArr = s.Trim().ToCharArray(); //remove leading and trailing zeros first
-        int count = 0;
-        for(int i = 0; i < charArr.Length; i++){ //reverse each word in the charArr
-            if(charArr[i] != ' '){
-                count++;
+        char[] charArr = s.ToCharArray(); 
+        Array.Reverse(charArr);  // reverse the whole sentence
+        ReverseWords(charArr); // reverse each word in the sentence
+        return RemoveSpaces(charArr); // remove leading, trailing, and multiple spaces
+    }
+    
+    private void ReverseWords(char[] charArr) {
+        int pos = 0;
+        while(pos < charArr.Length) {
+            if(charArr[pos] == ' ') {
+                pos++;
+                continue;
             }
-            else{
-                Array.Reverse(charArr, i - count, count);
-                count = 0;
+            int startIdx = pos;
+            while(pos < charArr.Length && charArr[pos] != ' ') {
+                pos++;
+            }
+            Array.Reverse(charArr, startIdx, pos - startIdx);
+        }
+    }
+    
+    private string RemoveSpaces(char[] charArr) {
+        int startIdx = 0, pos = 0;
+        while(pos < charArr.Length) {
+            while(pos < charArr.Length && charArr[pos] == ' ') { // remove leading space
+                pos++; 
+            }
+            while(pos < charArr.Length && charArr[pos] != ' ') {
+                charArr[startIdx++] = charArr[pos++];
+            }
+            if(pos < charArr.Length) {
+                charArr[startIdx++] = ' '; // adding one space between words
             }
         }
-        Array.Reverse(charArr, charArr.Length - count, count); //reverse the last portion
-        
-        int idx = 0;  //keep record of the valid portion => (word + only one ' ')
-        bool flag = false;
-        for(int i = 0; i < charArr.Length; i++){
-            if(charArr[i] != ' '){
-                charArr[idx++] = charArr[i];
-                flag = false;
-            }
-            else{
-                if(!flag){
-                    charArr[idx++] = charArr[i];
-                    flag = true;
-                }
-            }
+        if(startIdx > 0 && charArr[startIdx - 1] == ' ') { // check whether last char is ' '
+            startIdx--;
         }
-        Array.Reverse(charArr, 0, idx);  //only reverse the valid portion
-        return new string(charArr, 0, idx); //just return the valid portion
+        return new String(charArr, 0, startIdx);
     }
 }
