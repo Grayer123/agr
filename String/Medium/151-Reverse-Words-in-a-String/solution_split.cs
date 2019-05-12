@@ -5,14 +5,16 @@ public class Solution {
         if(String.IsNullOrWhiteSpace(s)){
             return string.Empty;
         }       
-        string[] arr = s.Trim().Split(' '); //remove leading and trailing zeros first
+        string[] arr = s.Split(' '); //remove leading and trailing zeros first
         StringBuilder builder = new StringBuilder(); 
-        for(int i = arr.Length - 1; i >= 0; i--){
-            if(String.IsNullOrWhiteSpace(arr[i])){
+        for(int i = arr.Length - 1; i >= 0; i--) {
+            if(String.IsNullOrWhiteSpace(arr[i])) {
                 continue;
             }
-            builder.Append(arr[i]).Append(" ");
+            builder.Append(arr[i]).Append(' ');
+            
         }
-        return builder.ToString().Trim();
+        builder.Length--; // remove the last ' '
+        return builder.ToString();
     }
 }
