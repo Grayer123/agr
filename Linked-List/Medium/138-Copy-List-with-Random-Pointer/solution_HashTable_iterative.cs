@@ -14,7 +14,7 @@ public class Node {
 */
 public class Solution {
     public Node CopyRandomList(Node head) {
-        // linked list
+        // linked list; hash table
         // tc:O(n); sc:O(n)
         if(head == null) {
             return head;
@@ -22,23 +22,20 @@ public class Solution {
         Dictionary<Node, Node> dict = new Dictionary<Node, Node>();
         Node cur = head;
         while(cur != null) {
-            if(!dict.ContainsKey(cur)) {
-                Node copy = new Node(cur.val, null, null);
-                dict[cur] = copy;
+            if(!dict.ContainsKey(cur)) {  
+                dict[cur] = new Node(cur.val, null, null);  // copy head node 
             }
             if(cur.next != null) {
                 if(!dict.ContainsKey(cur.next)) {
-                    Node copyNext = new Node(cur.next.val, null, null);
-                    dict[cur.next] = copyNext;
+                    dict[cur.next] = new Node(cur.next.val, null, null);   // copy next node              
                 }
-                dict[cur].next = dict[cur.next];
+                dict[cur].next = dict[cur.next];  // add the edge for next 
             }
             if(cur.random != null) {
                 if(!dict.ContainsKey(cur.random)) {
-                    Node copyRandom = new Node(cur.random.val, null, null);
-                    dict[cur.random] = copyRandom;
+                    dict[cur.random] = new Node(cur.random.val, null, null);  // copy random node
                 }
-                dict[cur].random = dict[cur.random];
+                dict[cur].random = dict[cur.random];  // add the edge for random
             }           
             cur = cur.next;
         }
