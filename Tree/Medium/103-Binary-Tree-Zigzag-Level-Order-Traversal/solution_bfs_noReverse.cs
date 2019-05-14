@@ -9,7 +9,7 @@
  */
 public class Solution {
     public IList<IList<int>> ZigzagLevelOrder(TreeNode root) {
-        // bfs + level order traversal
+        // level order traversal; bfs
         // tc:O(n); sc:O(n)
         if(root == null) {
             return new List<IList<int>>();
@@ -17,13 +17,14 @@ public class Solution {
         IList<IList<int>> res = new List<IList<int>>();
         Queue<TreeNode> queue = new Queue<TreeNode>();
         queue.Enqueue(root);
-        bool shouldReverse = false;
+        bool leftToRight = true;
         while(queue.Count > 0) {
-            int levelSize = queue.Count;
-            List<int> list = new List<int>();
-            for(int i = 0; i < levelSize; i++) {
+            int rowSize = queue.Count;
+            int[] arr = new int[rowSize];
+            for(int i = 0; i < rowSize; i++) {
                 TreeNode node = queue.Dequeue();
-                list.Add(node.val);
+                int idx = leftToRight ? i : (rowSize - i - 1);
+                arr[idx] = node.val;
                 if(node.left != null) {
                     queue.Enqueue(node.left);
                 }
@@ -31,11 +32,8 @@ public class Solution {
                     queue.Enqueue(node.right);
                 }
             }
-            if(shouldReverse) {
-                list.Reverse();
-            }
-            shouldReverse = !shouldReverse;
-            res.Add(list);
+            leftToRight = !leftToRight;
+            res.Add(arr.ToList());
         }
         return res;
     }

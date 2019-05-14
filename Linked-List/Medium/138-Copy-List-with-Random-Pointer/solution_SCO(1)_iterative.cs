@@ -14,48 +14,43 @@ public class Node {
 */
 public class Solution {
     public Node CopyRandomList(Node head) {
-        // linked list; 
+        // linked list;
         // tc:O(n); sc:O(1)
         if(head == null) {
             return head;
         }
         CopyNext(head);
-        CopyRandom(head);
+        ConnectRandom(head);
         return SplitList(head);
-       
     }
-    private void CopyNext(Node node) { // create copyNode for each node, and append to its next
-        while(node != null) {
-            Node copyNode = new Node(node.val, null, null);
-            Node curNext = node.next;
-            node.next = copyNode;
-            copyNode.next = curNext;
-            node = curNext;
+    
+    private void CopyNext(Node head) {  // create copyNode for each node, and append to its next
+       while(head != null) {
+           Node copyNode = new Node(head.val, null, null);
+           copyNode.next = head.next;
+           head.next = copyNode;
+           head = copyNode.next;
+       }
+    }
+    
+    private void ConnectRandom(Node head) {  //copy random link to the copied node
+        while(head != null) {
+            if(head.random != null) {
+                head.next.random = head.random.next;
+            }
+            head = head.next.next;
         }
     }
     
-    private void CopyRandom(Node node) { //copy random link to the copied node
-        while(node != null) {
-            Node randomNode = node.random;
-            if(randomNode != null) {
-                node.next.random = randomNode.next; // node.next => the copyNode for node
+    private Node SplitList(Node head) { //spilt the original node and the copied node 
+        Node copyHead = head.next;
+        while(head != null) {
+            Node oldNext = head.next.next;
+            if(oldNext != null) {
+                head.next.next = oldNext.next;
             }
-            
-            node = node.next.next;
-        }
-    }
-    
-    private Node SplitList(Node node) { //spilt the original node and the copied node 
-        Node copyHead = node.next;
-        while(node != null) {
-            Node copyNode = node.next;
-            Node nextNode = copyNode.next;
-            node.next = nextNode; // disconnect
-            if(nextNode != null) {
-                copyNode.next = nextNode.next;
-            }
-            node = nextNode;
-            
+            head.next = oldNext;
+            head = oldNext;
         }
         return copyHead;
     }
