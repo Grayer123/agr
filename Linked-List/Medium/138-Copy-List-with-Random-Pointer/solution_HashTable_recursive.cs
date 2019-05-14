@@ -21,20 +21,18 @@ public class Solution {
         }
         Dictionary<Node, Node> dict = new Dictionary<Node, Node>();
         return CopyNodes(head, dict);
-       
     }
-    private Node CopyNodes(Node node, Dictionary<Node, Node> dict) {
-        if(node == null) {
-            return node;
+    
+    private Node CopyNodes(Node head, Dictionary<Node, Node> dict) {
+        if(head == null) {
+            return head;
         }
-        if(dict.ContainsKey(node)) {
-            return dict[node];
-        }
-        Node copyNode = new Node(node.val, null, null);
-        dict[node] = copyNode; // need to build connection for 1 and 1' before create random pointer => (if point to itself => stack overflow)
-        copyNode.next = CopyNodes(node.next, dict);
-        copyNode.random = CopyNodes(node.random, dict);
-        
-        return copyNode;
+        if(dict.ContainsKey(head)) {
+            return dict[head];
+        }           
+        dict[head] = new Node(head.val, null, null);  // copy head node 
+        dict[head].next = CopyNodes(head.next, dict);  // copy next node 
+        dict[head].random = CopyNodes(head.random, dict);  // copy random node
+        return dict[head];
     }
 }
