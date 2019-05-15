@@ -1,4 +1,5 @@
 public class TicTacToe {
+    // TC:O(n); SC:O(n^2)
 
     /** Initialize your data structure here. */
     public TicTacToe(int n) {
