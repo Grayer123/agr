@@ -20,16 +20,16 @@ public class Solution {
             }
             right--;
             
-            if(left > right || up > down) {
+            if(left > right || up > down) { // make sure index still in scope
                 break;
             }
-            for(int k = right; k >= left; k--) { // from right to left
-                res.Add(matrix[down][k]);
+            for(int i = right; i >= left; i--) { // from right to left
+                res.Add(matrix[down][i]);
             }
             down--;
             
-            for(int l = down; l >= up; l--) { // from down to up
-                res.Add(matrix[l][left]);
+            for(int j = down; j >= up; j--) { // from down to up
+                res.Add(matrix[j][left]);
             }
             left++;
         }
