@@ -65,34 +65,18 @@
  */
 public class Solution {
     public TreeNode InsertIntoBST(TreeNode root, int val) {
-        // recursive BST property
-        // tc:O(h); sc:O(1)
+        // bst; insert; recursive
+        // tc:O(h); sc:O(h)
         if(root == null) {
-            return root;
+            return new TreeNode(val);
         }
-        TreeNode cur = root;
-        TreeNode lastNode = null; 
-        FindNode(root, ref lastNode, val);
-        if(lastNode.val <= val) {
-            lastNode.right = new TreeNode(val);
+        if(root.val < val) {
+            root.right = InsertIntoBST(root.right, val);
         }
         else {
-            lastNode.left = new TreeNode(val);
+            root.left = InsertIntoBST(root.left, val);
         }
         return root;
-    }
-    
-    private void FindNode(TreeNode node, ref TreeNode lastNode, int val) {
-        if(node == null) {
-            return;
-        }
-        lastNode = node;
-        if(node.val <= val) {
-            FindNode(node.right, ref lastNode, val);
-        }
-        else {
-            FindNode(node.left, ref lastNode, val);
-        }
     }
 }
 

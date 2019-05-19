@@ -74,27 +74,22 @@
  */
 public class Solution {
     public TreeNode InsertIntoBST(TreeNode root, int val) {
-        // iterative BST property
+        // bst; insert; iterative
         // tc:O(h); sc:O(1)
         if(root == null) {
-            return root;
+            return new TreeNode(val);
         }
         TreeNode cur = root;
-        TreeNode lastNode = null; 
+        TreeNode parent = null;
         while(cur != null) {
-            lastNode = cur;
-            if(cur.val <= val) {           
-                cur = cur.right;
-            }
-            else {
-                cur = cur.left;
-            }
+            parent = cur;
+            cur = cur.val < val ? cur.right : cur.left;
         }
-        if(lastNode.val <= val) {
-            lastNode.right = new TreeNode(val);
+        if(parent.val < val) {
+            parent.right = new TreeNode(val);
         }
         else {
-            lastNode.left = new TreeNode(val);
+            parent.left = new TreeNode(val);
         }
         return root;
     }
