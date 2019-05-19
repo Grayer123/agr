@@ -10,7 +10,7 @@
 
 public class Solution {
     public TreeNode DeleteNode(TreeNode root, int key) {
-        // bst; delete; relace with left largest
+        // bst; delete; relace with right smallest
         // tc:O(h); sc:O(h)
         if(root == null) {
             return root;
