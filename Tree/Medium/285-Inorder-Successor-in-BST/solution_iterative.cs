@@ -9,21 +9,21 @@
  */
 public class Solution {
     public TreeNode InorderSuccessor(TreeNode root, TreeNode p) {
-        // iterative bst property
+        // bst property; iterative
         // tc:O(h); sc:O(1)
         if(root == null || p == null) { //corner case
-            return root;
+            return null;
         }
-        TreeNode res = null;
+        TreeNode successor = null;
         while(root != null) {
             if(root.val <= p.val) { // successor in the right subtree
                 root = root.right;
             }
             else { // success could be ancestor or somenode in the left subtree
-                res = root;
+                successor = root;
                 root = root.left;
             }
         }
-        return res;
+        return successor;
     }
 }

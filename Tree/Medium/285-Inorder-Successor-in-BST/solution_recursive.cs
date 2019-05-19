@@ -9,26 +9,16 @@
  */
 public class Solution {
     public TreeNode InorderSuccessor(TreeNode root, TreeNode p) {
-        // recursive bst property
-        // tc:O(h); sc:O(1)
-        if(root == null || p == null) { // corner case
-            return root;
+        // bst property; recursive
+        // tc:O(h); sc:O(h)
+        if(root == null || p == null) { //corner case
+            return null;
         }
-        TreeNode res = null;
-        FindInorderSuccessor(root, p, ref res);
-        return res;
-    }
-    
-    private void FindInorderSuccessor(TreeNode root, TreeNode p, ref TreeNode res) {
-        if(root == null) {
-            return;
+        if(root.val <= p.val) {
+            return InorderSuccessor(root.right, p);
         }
-        if(root.val <= p.val) { // successor in the right subtree
-            FindInorderSuccessor(root.right, p, ref res);
-        }
-        else {  // success could be ancestor or somenode in the left subtree
-            res = root;
-            FindInorderSuccessor(root.left, p, ref res);
-        }
+        // root.val > p.val
+        TreeNode successor = InorderSuccessor(root.left, p);
+        return successor != null ? successor : root;
     }
 }
