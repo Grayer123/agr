@@ -12,7 +12,7 @@ public class Solution {
             int digit = x % 10;
             x /= 10;
             if(res > Int32.MaxValue / 10 || res == Int32.MaxValue / 10 && digit > Int32.MaxValue % 10) { // overflow
-                return 0; 
+                return 0; // no int x exists => Reverse(x) == Int32.MinValue
             }
             res = res * 10 + digit;
         } 
