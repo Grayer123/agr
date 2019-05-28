@@ -1,7 +1,7 @@
 public class Solution {
     public int MyAtoi(string str) {
         // string + math + using long
-        // tc:O(n); sc:O(n)
+        // tc:O(n); sc:O(1)
         if(String.IsNullOrEmpty(str)) {
             return 0;
         }
