@@ -5,16 +5,19 @@ public class Solution {
         if(String.IsNullOrEmpty(str)) {
             return 0;
         }
-        str = str.Trim(); // remove leading and trailing white space
         int pos = 0, sign = 1;
         int res = 0;
-        if(str == "" || str[0] != '+' && str[0] != '-' && !Char.IsDigit(str[0])) { // no conversion to perform
-            return 0;
-        }
-        if(str[0] == '+') { // sign bit
+        // str = str.Trim();
+        while(pos < str.Length && str[pos] == ' ') { // skip the leading white space
             pos++;
         }
-        else if(str[0] == '-') {
+        if(pos == str.Length || str[pos] != '+' && str[pos] != '-' && !Char.IsDigit(str[pos])) { // no conversion to perform
+            return 0;
+        }
+        if(str[pos] == '+') { // sign bit
+            pos++;
+        }
+        else if(str[pos] == '-') {
             sign = -1;
             pos++;
         }
