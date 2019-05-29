@@ -7,23 +7,15 @@ public class Solution {
         }
         char[,] arr = new char[numRows, s.Length];
         int pos = 0;
-        int row = 0, col = 0;
+        int col = 0;
         while(pos < s.Length) {
-            if(row == 0) {
-                while(row < numRows && pos < s.Length) {
-                    arr[row, col] = s[pos];
-                    pos++;
-                    row++;
-                }
-                row = Math.Max(0, row - 2);
-                col++;
+            int up = 0, down = numRows - 2;
+            while(up < numRows && pos < s.Length) { // moving down
+                arr[up++, col] = s[pos++];
             }
-            
-            if(pos >= s.Length) {
-                break;
-            }
-            if(row != 0 && pos < s.Length) {
-                arr[row--, col++] = s[pos++];
+            col++;
+            while(down > 0 && pos < s.Length) { // moving up
+                arr[down--, col++] = s[pos++];
             }
         }
         StringBuilder str = new StringBuilder();
