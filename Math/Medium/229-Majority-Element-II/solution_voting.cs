@@ -5,8 +5,8 @@ public class Solution {
         if(nums == null || nums.Length < 2) {
             return nums;
         }
-        int count1 = 0, candidate1 = 0;
-        int count2 = 0, candidate2 = 1;
+        int count1 = 0, candidate1 = 0; // initialization num does not matter (candidate could be anything)
+        int count2 = 0, candidate2 = 0;
         foreach(int num in nums) {
             if(candidate1 == num) {
                 count1++;
@@ -14,7 +14,7 @@ public class Solution {
             else if(candidate2 == num) {
                 count2++;
             }
-            else if(count1 == 0) {
+            else if(count1 == 0) { // get new number or replace with new number
                 candidate1 = num;
                 count1++;
             }
