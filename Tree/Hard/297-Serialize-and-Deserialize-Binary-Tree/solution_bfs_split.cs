@@ -8,76 +8,63 @@
  * }
  */
 public class Codec {
-    // bfs: level order serialization
-    // tc:O(n); sc:O(n)
-    
+
     // Encodes a tree to a single string.
     public string serialize(TreeNode root) {
+        // bfs; level order traversal
+        // tc:O(n); sc:O(n)
         if(root == null) {
             return string.Empty;
         }
         StringBuilder str = new StringBuilder();
         Queue<TreeNode> queue = new Queue<TreeNode>();
         queue.Enqueue(root);
-        str.Append(root.val);
-        str.Append(' ');
         while(queue.Count > 0) {
             TreeNode node = queue.Dequeue();
-            if(node.left != null) {
+            if(node != null) {
+                str.Append(node.val);
                 queue.Enqueue(node.left);
-                str.Append(node.left.val);
-                str.Append(' ');
-            }
-            else {
-                str.Append("# ");
-            }
-            if(node.right != null) {
                 queue.Enqueue(node.right);
-                str.Append(node.right.val);
-                str.Append(' ');
             }
             else {
-                str.Append("# ");
+                str.Append('#');
             }
+            str.Append(',');     
         }
+        str.Length--; // remove the last ,
         return str.ToString();
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(string data) {
-        if(data == null || data == string.Empty) {
+        // split string; level order traversal
+        // tc:O(n); sc:O(n)
+        if(String.IsNullOrEmpty(data)) {
             return null;
         }
-        string[] arr = data.Split(' ');
-        int cur = 0;
-        Queue<TreeNode> queue = new Queue<TreeNode>();  
-        TreeNode root = FetchNode(arr, ref cur);
-        
+        string[] arr = data.Split(',');
+        if(arr == null || arr.Length == 0) { // corner case
+            return null;
+        }
+        int idx = 0;
+        TreeNode root = new TreeNode(Int32.Parse(arr[0]));
+        Queue<TreeNode> queue = new Queue<TreeNode>();
         queue.Enqueue(root);
         while(queue.Count > 0) {
             TreeNode node = queue.Dequeue();
-            TreeNode leftNode = FetchNode(arr, ref cur);
-            TreeNode rightNode = FetchNode(arr, ref cur);
-            node.left = leftNode;
-            node.right = rightNode;
-            if(leftNode != null) {
-                queue.Enqueue(leftNode);
+            if(idx * 2 + 2 < arr.Length) { // prevent error
+                node.left = arr[idx * 2 + 1] == "#" ? null : new TreeNode(Int32.Parse(arr[idx * 2 + 1]));
+                node.right = arr[idx * 2 + 2] == "#" ? null : new TreeNode(Int32.Parse(arr[idx * 2 + 2]));
             }
-            if(rightNode != null) {
-                queue.Enqueue(rightNode);
+            if(node.left != null) {
+                queue.Enqueue(node.left);
             }
+            if(node.right != null) {
+                queue.Enqueue(node.right);
+            }
+            idx++;
         }
         return root;
-    }
-    
-    private TreeNode FetchNode(string[] arr, ref int cur) {
-        if(arr[cur] == "#") {
-            cur++;
-            return null;
-        }
-        TreeNode newNode = new TreeNode(Int32.Parse(arr[cur]));
-        cur++;
-        return newNode;
     }
 }
 
