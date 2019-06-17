@@ -9,7 +9,7 @@
  */
 public class Solution {
     public bool IsCompleteTree(TreeNode root) {
-        // bfs: level order traversal
+        // bfs; level order traversal
         // tc:O(n); sc:O(n)
         if(root == null) {
             return true;
@@ -24,6 +24,6 @@ public class Solution {
         while(queue.Count > 0 && queue.Peek() == null) { // complete tree: should be empty after the first null node
             queue.Dequeue();
         }
-        return !(queue.Count > 0);
+        return queue.Count == 0;
     }
 }
