@@ -7,6 +7,7 @@
  *     public TreeNode(int x) { val = x; }
  * }
  */
+
 public class ResultType {
     public bool isBst;
     public int count;
@@ -40,12 +41,10 @@ public class Solution {
         }
         ResultType left = FindMaxBst(node.left, ref maxCount);
         ResultType right = FindMaxBst(node.right, ref maxCount);
-        if(left.isBst && right.isBst) {
-            if(node.val > left.maxVal && node.val < right.minVal) {
-                int curCount = left.count + right.count + 1;
-                maxCount = Math.Max(curCount, maxCount);
-                return new ResultType(true, curCount, Math.Min(left.minVal, node.val), Math.Max(right.maxVal, node.val));
-            }
+        if(left.isBst && right.isBst && node.val > left.maxVal && node.val < right.minVal) {
+            int curCount = left.count + right.count + 1;
+            maxCount = Math.Max(maxCount, curCount);
+            return new ResultType(true, curCount, Math.Min(node.val, left.minVal), Math.Max(node.val, right.maxVal));
         }
         return new ResultType(false, 0, 0, 0);
     }
