@@ -21,7 +21,7 @@ public class Solution {
         }
         Node prev = null, head = null;
         Inorder(root, ref prev, ref head);
-        head.left = prev;
+        head.left = prev; // make it circular
         prev.right = head;              
         return head;
     }
@@ -31,7 +31,7 @@ public class Solution {
             return;
         }
         Inorder(root.left, ref prev, ref head);
-        if(prev == null) { 
+        if(prev == null) { // the downleft most node is the head of doubly linked list
             head = root; 
         }
         else {
