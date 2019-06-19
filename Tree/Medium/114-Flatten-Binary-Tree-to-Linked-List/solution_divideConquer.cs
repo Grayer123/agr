@@ -9,31 +9,25 @@
  */
 public class Solution {
     public void Flatten(TreeNode root) {
-        // divide and conquer
+        // traversal recursive
         // tc:O(n); sc:O(h)
-        if(root == null) { // corner case
+        if(root == null) { // corner case 
             return;
         }
-        DoFlatten(root);
+        TreeNode prev = null;
+        DoFlatten(root, ref prev); // callee method reassign to prev => need to add ref 
     }
     
-    private TreeNode DoFlatten(TreeNode node) { //return last visited node 
+    private void DoFlatten(TreeNode node, ref TreeNode prev) {
         if(node == null) {
-            return null;
+            return;
         }
-        TreeNode lastLeft = DoFlatten(node.left); // flatten left subtree
-        TreeNode lastRight = DoFlatten(node.right); // flatten right subtree
-        if(lastLeft != null) { // connect left subtree and right subtree
-            lastLeft.right = node.right;
-            node.right = node.left;
+        DoFlatten(node.right, ref prev);
+        DoFlatten(node.left, ref prev);
+        if(prev != null) {  // do flatten
+            node.right = prev;
             node.left = null;
         }
-        if(lastRight != null) { //return last visited node
-            return lastRight;
-        }
-        if(lastLeft != null) {
-            return lastLeft;
-        }
-        return node;
+        prev = node;
     }
 }
