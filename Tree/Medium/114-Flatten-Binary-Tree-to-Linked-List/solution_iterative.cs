@@ -9,12 +9,12 @@
  */
 public class Solution {
     public void Flatten(TreeNode root) {
-        // iterative + preorder traversal
+        // iterative + stack + preorder traversal
         // tc:O(n); sc:O(h)
         if(root == null) {
             return;
         }
-        TreeNode lastNode = null;
+        TreeNode prev = null;
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.Push(root);
         while(stack.Count > 0) {
@@ -25,11 +25,11 @@ public class Solution {
             if(node.left != null) {
                 stack.Push(node.left);
             }
-            if(lastNode != null) {
-                lastNode.right = node;
-                lastNode.left = null;
+            if(prev != null) {
+                prev.right = node;
+                prev.left = null;
             }           
-            lastNode = node;
+            prev = node;
         }
     }
 }
