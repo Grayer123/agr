@@ -8,28 +8,26 @@
  * }
  */
 public class BSTIterator {
-    // in-order traversal
-    // total tc:O(n); sc:O(h)
+        // in-order traversal
+        // total tc:O(n); sc:O(h)
     public BSTIterator(TreeNode root) {
         if(root == null) {
             return;
-        }             
-        FindLeftNodes(root);
-        
+        }
+        AddLeftNode(root);
     }
     
     /** @return the next smallest number */
     public int Next() {
         // fetch next takes O(1) + right node not null => add its all left children to stack
         if(stack.Count == 0) {
-            throw new Exception("Cannot fetch next from a empty tree");
+            throw new Exception("Cannot fetch next from a empty tree.");
         }
         TreeNode node = stack.Pop();
-        int res = node.val;
         if(node.right != null) {
-            FindLeftNodes(node.right);
+            AddLeftNode(node.right);
         }
-        return res;
+        return node.val;
     }
     
     /** @return whether we have a next smallest number */
@@ -38,15 +36,14 @@ public class BSTIterator {
         return stack.Count > 0;
     }
     
-    private Stack<TreeNode> stack = new Stack<TreeNode>(); 
+    private Stack<TreeNode> stack = new Stack<TreeNode>();
     
-    private void FindLeftNodes(TreeNode node) {
+    private void AddLeftNode(TreeNode node) {
         while(node != null) {
             stack.Push(node);
             node = node.left;
         }
     }
-    
 }
 
 /**
