@@ -8,36 +8,34 @@
  */
 public class Solution {
     public bool IsPalindrome(ListNode head) {
-        // use list as auxiliary 
-        // TC:O(n); SC:O(n)
+        // half reverse;
+        // tc:O(n); sc:O(1)
         if(head == null || head.next == null) {
             return true;
         }
-        ListNode mid = FindMiddle(head); 
-        ListNode cur = mid.next;
-        mid.next = null; // disconnect
-        ListNode newHead = RotateList(cur);
-        while(head != null && newHead != null) {
+        ListNode midNode = FindMiddle(head);
+        ListNode newHead = ReverseList(midNode.next);
+        midNode.next = newHead;
+        while(newHead != null) {
             if(head.val != newHead.val) {
                 return false;
-            } 
+            }
             head = head.next;
             newHead = newHead.next;
         }
         return true;
-        
     }
     
     private ListNode FindMiddle(ListNode head) {
-        ListNode left = head, right = head;
-        while(right.next != null && right.next.next != null) {
-            left = left.next;
-            right = right.next.next;
+        ListNode slow = head, fast = head;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return left;
+        return slow;
     }
     
-    private ListNode RotateList(ListNode head) {
+    private ListNode ReverseList(ListNode head) {
         ListNode prev = null;
         while(head != null) {
             ListNode tmp = head.next;
@@ -47,4 +45,5 @@ public class Solution {
         }
         return prev;
     }
+
 }
