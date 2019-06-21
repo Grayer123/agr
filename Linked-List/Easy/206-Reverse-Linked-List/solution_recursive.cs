@@ -9,22 +9,13 @@
 public class Solution {
     public ListNode ReverseList(ListNode head) {
         // linked list reverse; recursive
-        // tc:O(n); sc:O(1)
-        if(head == null) {
+        // tc:O(n); sc:O(n)
+        if(head == null || head.next == null) {
             return head;
         }
-        ListNode prev = null;
-        ReverseNodes(ref head, ref prev);
-        return prev;
-    }
-    private void ReverseNodes(ref ListNode cur, ref ListNode prev) {
-        if(cur == null) {
-            return;
-        }
-        ListNode curNext = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = curNext;
-        ReverseNodes(ref cur, ref prev);
+        ListNode newHead = ReverseList(head.next);  // give back a reversed linked list of the rest, not including me
+        head.next.next = head; // handling me situation
+        head.next = null;
+        return newHead;
     }
 }
