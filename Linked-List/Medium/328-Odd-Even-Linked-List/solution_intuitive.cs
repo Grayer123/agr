@@ -8,29 +8,29 @@
  */
 public class Solution {
     public ListNode OddEvenList(ListNode head) {
-        // linked list; 
-        // tc:O(n); sc:O(1)
-        if(head == null) {
+        if(head == null || head.next == null) {
             return head;
         }
-        ListNode cur = head;
-        ListNode lastOdd = head;
-        ListNode evenHead = new ListNode(-1);
-        ListNode curEven = evenHead;
-        while(cur != null && cur.next != null) {
-            curEven.next = cur.next;
-            curEven = cur.next;
-            lastOdd = cur;
-            cur.next = cur.next.next;
+        ListNode odd = head;
+        ListNode evenHead = head.next;
+        ListNode even = evenHead;
+        // head.next = null; // disconnect
+        ListNode cur = even.next;
+        int count = 3;
+        while(cur != null) {
+            if(count % 2 == 1) {
+                odd.next = cur;
+                odd = cur;
+            }
+            else {
+                even.next = cur;
+                even = cur;
+            }
             cur = cur.next;
+            count++;
         }
-        curEven.next = null; // disconnect
-        if(cur != null) {
-            cur.next = evenHead.next;
-        }
-        else {
-            lastOdd.next = evenHead.next;
-        }
+        even.next = null; // disconnect
+        odd.next = evenHead;
         return head;
     }
 }
