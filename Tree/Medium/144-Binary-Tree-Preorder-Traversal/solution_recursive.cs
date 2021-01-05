@@ -7,6 +7,22 @@
  *     public TreeNode(int x) { val = x; }
  * }
  */
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+ // method 1: Add one private helper method to do the traversal.
 public class Solution {
     public IList<int> PreorderTraversal(TreeNode root) {
         // dfs
@@ -14,16 +30,16 @@ public class Solution {
         if(root == null) {
             return new List<int>();
         }
-        IList<int> res = new List<int>();
-        Dfs(root, res);
+        var res = new List<int>();
+        Traverse(root, res);
         return res;
     }
-    private void Dfs(TreeNode node, IList<int> res) {
+    private void Traverse(TreeNode node, IList<int> res) {
         if(node == null) {
             return;
         }
         res.Add(node.val);
-        Dfs(node.left, res);
-        Dfs(node.right, res);
+        Traverse(node.left, res);
+        Traverse(node.right, res);
     }
 }
