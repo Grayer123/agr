@@ -11,6 +11,8 @@
  *     }
  * }
  */
+
+// Version 1: Global Variable
 public class Solution {
     // initiate the maxSum as the MinValue of int
     private int maxSum = Int32.MinValue;
