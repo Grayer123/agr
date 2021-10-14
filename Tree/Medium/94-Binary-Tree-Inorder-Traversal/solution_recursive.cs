@@ -4,26 +4,27 @@
  *     public int val;
  *     public TreeNode left;
  *     public TreeNode right;
- *     public TreeNode(int x) { val = x; }
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 public class Solution {
     public IList<int> InorderTraversal(TreeNode root) {
-        // dfs
-        // tc:O(n); sc:O(n)
-        if(root == null) {
+        // recursive
+        // tc:O(n); sc:O(h)
+        if (root == null) {
             return new List<int>();
         }
-        IList<int> res = new List<int>();
-        Dfs(root, res);
-        return res;
-    }
-    private void Dfs(TreeNode node, IList<int> res) {
-        if(node == null) {
-            return;
-        }
-        Dfs(node.left, res);
-        res.Add(node.val);
-        Dfs(node.right, res);
+        
+        var left = InorderTraversal(root.left) as List<int>;
+        var right = InorderTraversal(root.right);
+        
+        left.Add(root.val);
+        left.AddRange(right);
+        
+        return left;
     }
 }
