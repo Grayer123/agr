@@ -11,27 +11,34 @@
  *     }
  * }
  */
- 
+
 public class Solution {
     public IList<int> PreorderTraversal(TreeNode root) {
-        // iterative + stack
-        // tc:O(n); sc:O(n)
-        if(root == null) {
+        // iteration + stack
+        // tc:O(n); sc:O(h)
+        if (root == null) {
             return new List<int>();
         }
-        IList<int> res = new List<int>();
-       Stack<TreeNode> stack = new Stack<TreeNode>();
+        
+        var res = new List<int>();
+        var stack = new Stack<TreeNode>();
         stack.Push(root);
-        while(stack.Count > 0) {
+        
+        while (stack.Count > 0) {
             var node = stack.Pop();
             res.Add(node.val);
-            if(node.right != null) { // add right first then pop later
+            
+            // since stack is FILO, so put in right first, and it would be popped last
+            if (node.right != null) {
                 stack.Push(node.right);
             }
-            if(node.left != null) { // add left later then pop first
+            
+            if (node.left != null) {
                 stack.Push(node.left);
             }
         }
+        
         return res;
     }
+    
 }

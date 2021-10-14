@@ -8,25 +8,19 @@
 # version 2: no adding a helper method
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # iteration + stack
+        # recursive
         # tc:O(n); sc:O(h)
         
         if not root:
             return []
         
-        res = []
-        stack = [root]
+        res = [root.val]
         
-        while stack:
-            node = stack.pop()
-            res.append(node.val)
-            
-            # since stack is FILO, so put in right first, and it would be popped last
-            if node.right:
-                stack.append(node.right)
-                
-            if node.left:
-                stack.append(node.left)
-            
+        left = self.preorderTraversal(root.left)
+        right = self.preorderTraversal(root.right)
+        
+        res.extend(left)
+        res.extend(right)
+        
         return res
         
